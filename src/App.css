@@ -35,7 +35,8 @@
   display: flex;
   gap: 16px;
 }
-.nav a { color: #0f172a; }
+.nav a { color: #0f172a; position: relative; transition: color 150ms ease, transform 150ms ease; }
+.nav a:hover { color: var(--primary); transform: translateY(-1px); }
 
 /* Hero */
 .hero { background: #1d4ed8; padding: 96px 0 72px; text-align: center; color: #fff; }
@@ -120,6 +121,7 @@
   border: 1px solid transparent;
   font-weight: 600;
   text-decoration: none;
+  cursor: pointer;
 }
 .btn-lg {
   height: 48px;
@@ -127,6 +129,11 @@
 }
 .btn-primary { background: var(--primary); color: #fff; box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 2px 8px rgba(37,99,235,0.2); }
 .btn-accent { background: var(--accent); color: #fff; box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 2px 8px rgba(20,184,166,0.2); }
+
+/* Header button hover animation */
+.nav .btn { transition: transform 150ms ease, box-shadow 150ms ease; }
+.nav .btn:hover { transform: translateY(-1px) scale(1.04); box-shadow: 0 2px 6px rgba(37,99,235,0.25); }
+.nav .btn.btn-primary:hover { color: #ffffff; }
 
 /* Contact form */
 .contact-form { margin-top: 16px; }
@@ -141,6 +148,9 @@
   color: var(--text);
 }
 .form-field input::placeholder, .form-field textarea::placeholder { color: var(--muted); }
+/* Contact page send button hover pop */
+.contact-form .btn { transition: transform 150ms ease, box-shadow 150ms ease; }
+.contact-form .btn:hover { transform: translateY(-1px) scale(1.06); box-shadow: 0 6px 18px rgba(2,6,23,0.15); }
 @media (max-width: 900px) {
   .form-row { grid-template-columns: 1fr; }
 }
@@ -183,4 +193,4 @@
 }
 .modal-body h3 { margin: 0 0 6px; font-size: 22px; }
 .modal-body .muted { color: var(--muted); }
-.modal-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 16px; }
+.modal-actions { display: flex; justify-content: center; gap: 10px; margin-top: 16px; }

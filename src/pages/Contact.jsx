@@ -3,7 +3,7 @@ export default function Contact() {
     <section className="section">
       <div className="container" id="contact-form">
         <h1>Contact us</h1>
-        <p className="subtitle">Tell us a bit about your situation and how to reach you.</p>
+        <p className="subtitle">Schedule your free consultation by filling out the form below.</p>
         <form className="contact-form">
           <div className="form-row">
             <div className="form-field">
