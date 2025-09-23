@@ -35,23 +35,28 @@ function Steps() {
   return (
     <section id="how-it-works" className="section steps">
       <div className="container">
-        <h2>Three easy steps</h2>
-        <div className="grid three">
-          <div className="card step">
-            <div className="step-num">1</div>
-            <h3>Tell us what happened</h3>
-            <p>Share the basics about your job, what happened, and when.</p>
+        <div className="layout">
+          <div className="left">
+            <h2>Three easy steps</h2>
+            <div className="grid three">
+              <div className="card step">
+                <div className="step-num">1</div>
+                <h3>Tell us what happened</h3>
+                <p>Share the basics about your job, what happened, and when. We are here to hear you and help you.</p>
+              </div>
+              <div className="card step">
+                <div className="step-num">2</div>
+                <h3>Get matched with a lawyer</h3>
+                <p>We find you the best employment attorney that matches exactly what you need.</p>
+              </div>
+              <div className="card step">
+                <div className="step-num">3</div>
+                <h3>Move forward with confidence</h3>
+                <p>You relax and we handle the rest.</p>
+              </div>
+            </div>
           </div>
-          <div className="card step">
-            <div className="step-num">2</div>
-            <h3>Get matched with a lawyer</h3>
-            <p>We connect you with a vetted employment attorney for your situation.</p>
-          </div>
-          <div className="card step">
-            <div className="step-num">3</div>
-            <h3>Move forward with confidence</h3>
-            <p>Discuss options, next steps, and potential outcomes—on your timeline.</p>
-          </div>
+          <div className="right"></div>
         </div>
       </div>
     </section>
@@ -99,8 +104,8 @@ function FundingCTA() {
     <section id="get-started" className="section cta">
       <div className="container cta-inner">
         <div>
-          <h2>Start now—talk to a lawyer</h2>
-          <p>Most people hear back within 24–48 hours. No pressure—just options.</p>
+          <h2>Start now! Talk to one our lawyers. </h2>
+          <p>Get a response in as fast as an hour.</p>
         </div>
         <a className="btn btn-primary btn-lg" href="#contact-form">See if you qualify</a>
       </div>

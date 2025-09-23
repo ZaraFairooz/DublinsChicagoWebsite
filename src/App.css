@@ -15,6 +15,16 @@
   gap: 24px;
 }
 
+/* Steps layout: stack items vertically and align left */
+.steps h2 { text-align: left; }
+.steps h2 { font-size: 50px; line-height: 1.15; font-family: "Playfair Display", Georgia, Cambria, "Times New Roman", Times, serif; }
+.steps .layout { display: grid; grid-template-columns: 1fr 1fr; align-items: start; gap: 24px; }
+.steps .left { display: grid; gap: 30px; }
+.steps .grid.three { grid-template-columns: 1fr; justify-items: start; }
+.steps .right { min-height: 100%; }
+.steps .step { width: 100%; text-align: left; }
+.steps .step h3 { font-size: 20px; line-height: 1.2; font-family: "Playfair Display", Georgia, Cambria, "Times New Roman", Times, serif; }
+
 .card {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -23,24 +33,24 @@
 }
 
 /* Header */
-.site-header { position: sticky; top: 0; background: var(--bg); border-bottom: 1px solid var(--border); z-index: 10; }
+.site-header { position: sticky; top: 0; background: var(--surface); border-bottom: 1px solid var(--border); z-index: 10; }
 .header-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 64px;
 }
-.brand { font-weight: 800; font-size: 20px; color: #0f172a; }
+.brand { font-weight: 800; font-size: 20px; color: #ffffff; }
 .nav {
   display: flex;
   gap: 16px;
 }
-.nav a { color: #0f172a; position: relative; transition: color 150ms ease, transform 150ms ease; }
+.nav a { color: #ffffff; position: relative; transition: color 150ms ease, transform 150ms ease; }
 .nav a:hover { color: var(--primary); transform: translateY(-1px); }
 
 /* Hero */
-.hero { background: #1d4ed8; padding: 96px 0 72px; text-align: center; color: #fff; }
-.hero .subtitle { color: rgba(255,255,255,0.9); }
+.hero { background: var(--primary); padding: 150px 0 150px; text-align: center; color: #000000; }
+.hero .subtitle { color: rgba(40, 40, 40, 0.9); }
 .hero .btn.btn-accent {
   background: rgba(0,0,0,0.25);
   color: #ffffff;
@@ -61,24 +71,25 @@
 .hero-title {
   font-size: clamp(48px, 10vw, 96px);
   line-height: 1.05;
-  font-weight: 900;
+  font-weight: 800;
+  font-family: "Playfair Display", Georgia, Cambria, "Times New Roman", Times, serif;
   letter-spacing: -0.02em;
   transform: scale(var(--hero-scale, 1));
   opacity: var(--hero-opacity, 1);
   transition: transform 120ms linear, opacity 120ms linear;
 }
 .hero h1 {
-  font-size: 55px;
+  font-size: 70px;
   line-height: 1.1;
-  margin: 0 0 12px;
+  margin: 0 0 25px;
 }
-.subtitle { color: var(--muted); margin-bottom: 24px; }
+.subtitle { color: var(--muted); margin-bottom: 50px; }
 
 /* Steps */
-.steps .step-num { width: 40px; height: 40px; border-radius: 999px; background: var(--accent); color: #fff; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; margin-bottom: 12px; }
+.steps .step-num { width: 60px; height: 50px; border-radius: 999px; background: var(--accent); color: #fff; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; margin-bottom: 20px; }
 
 /* CTA */
-.cta { background: #f8fafc; }
+.cta { background: var(--text); color: #000000; }
 .cta-inner {
   display: flex;
   align-items: center;
@@ -100,10 +111,7 @@
 }
 
 /* Footer */
-.site-footer {
-  border-top: 1px solid var(--border);
-  padding: 32px 0;
-}
+.site-footer { border-top: 1px solid var(--border); padding: 32px 0; color: #ffffff; background: var(--surface); }
 .footer-inner {
   display: flex;
   align-items: center;
@@ -156,7 +164,10 @@
 .services { background: var(--accent); color: #ffffff; }
 .services h2 { color: #ffffff; }
 .services .card.service { background: #ffffff; color: #0f172a; border-color: rgba(2,6,23,0.08); }
-.services .card.service h3 { color: #0f172a; }
+.services .card.service h3 { color: var(--accent); }
+.services h2 { font-size: 50px; line-height: 2; font-family: "Playfair Display", Georgia, Cambria, "Times New Roman", Times, serif; }
+.cta h2 { font-size: 50px; line-height: 2; font-family: "Playfair Display", Georgia, Cambria, "Times New Roman", Times, serif; }
+.faq h2 { font-size: 50px; line-height: 3; font-family: "Playfair Display", Georgia, Cambria, "Times New Roman", Times, serif; }
 @media (max-width: 900px) {
   .form-row { grid-template-columns: 1fr; }
 }
@@ -170,6 +181,7 @@
     flex-direction: column;
     text-align: center;
   }
+  .steps .layout { grid-template-columns: 1fr; }
 }
 @media (max-width: 640px) {
   .grid.three {

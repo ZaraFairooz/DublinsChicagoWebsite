@@ -1,2 +1,8 @@
 TO DO
 -  change text font
+- change hero background to an image 
+- change colors to orange, red, black
+
+idea
+- make header to nav bar and nav bar will take up 
+entire page from bottom up like kirkland and ellis
