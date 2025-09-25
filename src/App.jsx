@@ -34,6 +34,7 @@ function Hero() {
 function Steps() {
   const stepRefs = useRef([]);
   const lastScrollY = useRef(0);
+  const arrowRef = useRef(null);
 
   useEffect(() => {
     const observerOptions = {
@@ -82,6 +83,68 @@ function Steps() {
     };
   }, []);
 
+  useEffect(() => {
+    let stepsSection = null;
+    let sectionTop = 0;
+    let sectionHeight = 0;
+    let viewportHeight = window.innerHeight;
+
+    // Cache section data for better performance
+    const updateSectionData = () => {
+      stepsSection = document.getElementById('how-it-works');
+      if (stepsSection) {
+        sectionTop = stepsSection.offsetTop;
+        sectionHeight = stepsSection.offsetHeight;
+        viewportHeight = window.innerHeight;
+      }
+    };
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const scrollDirection = currentScrollY > lastScrollY.current ? 'down' : 'up';
+      
+          if (arrowRef.current) {
+            arrowRef.current.setAttribute('data-direction', scrollDirection);
+            
+            // Use cached section data for better performance
+            if (stepsSection) {
+              // Calculate when section starts being visible
+              const sectionStart = sectionTop - viewportHeight;
+              // Calculate when section ends being visible
+              const sectionEnd = sectionTop + sectionHeight;
+              
+              // Calculate progress from section start to end
+              let scrollProgress = 0;
+              if (currentScrollY >= sectionStart && currentScrollY <= sectionEnd) {
+                scrollProgress = (currentScrollY - sectionStart) / (sectionEnd - sectionStart);
+              } else if (currentScrollY > sectionEnd) {
+                scrollProgress = 1;
+              }
+              
+              arrowRef.current.style.setProperty('--scroll-progress', Math.max(0, Math.min(1, scrollProgress)));
+            } else {
+              // Fallback to general scroll progress
+              arrowRef.current.style.setProperty('--scroll-progress', Math.min(currentScrollY / 1000, 1));
+            }
+          }
+      
+      lastScrollY.current = currentScrollY;
+    };
+
+    // Initial setup
+    updateSectionData();
+    handleScroll();
+
+    // Listeners
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', updateSectionData, { passive: true });
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', updateSectionData);
+    };
+  }, []);
+
   return (
     <section id="how-it-works" className="section steps">
       <div className="container">
@@ -115,7 +178,23 @@ function Steps() {
               </div>
             </div>
           </div>
-          <div className="right"></div>
+          <div className="right">
+            <div ref={arrowRef} className="scroll-arrow" data-direction="down">
+              <div className="arrow-container">
+                <svg className="arrow-svg" viewBox="0 0 24 24" fill="none">
+                  <path 
+                    d="M12 3V21M12 21L6 15M12 21L18 15" 
+                    stroke="currentColor" 
+                    strokeWidth="3" 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round"
+                  />
+                  <circle cx="12" cy="3" r="2" fill="currentColor" />
+                </svg>
+                <div className="dynamic-line"></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -233,7 +312,7 @@ function FundingCTA() {
           <h2>Start now! Talk to one our lawyers. </h2>
           <p>Get a response in as fast as an hour.</p>
         </div>
-        <a className="btn btn-primary btn-lg" href="#contact-form">See if you qualify</a>
+        <a className="btn btn-primary btn-lg" href="contact">See if you qualify</a>
       </div>
     </section>
   )

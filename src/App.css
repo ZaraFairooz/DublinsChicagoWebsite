@@ -116,13 +116,91 @@
 .animate-card:nth-child(2) { transition-delay: 100ms; }
 .animate-card:nth-child(3) { transition-delay: 200ms; }
 
+/* Scroll Arrow Animation */
+.scroll-arrow {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  opacity: 1;
+  padding-top: 40px;
+}
+
+.arrow-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  will-change: transform;
+  transform: translateY(calc(var(--scroll-progress, 0) * 350px));
+}
+
+.arrow-svg {
+  width: 72px;
+  height: 72px;
+  color: var(--accent);
+  will-change: transform;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+  stroke-width: 3;
+  transition: all 0.2s ease-out;
+}
+
+.scroll-arrow[data-direction="down"] .arrow-svg {
+  transform: rotate(0deg);
+}
+
+.scroll-arrow[data-direction="up"] .arrow-svg {
+  transform: rotate(180deg);
+}
+
+.dynamic-line {
+  width: 4px;
+  height: calc(var(--scroll-progress, 0) * 200px + 20px);
+  background: linear-gradient(to bottom, var(--accent), transparent);
+  border-radius: 3px;
+  opacity: 0.9;
+  will-change: height, opacity;
+  box-shadow: 0 0 8px rgba(20, 184, 166, 0.4);
+  transition: height 0.1s ease-out, opacity 0.2s ease-out;
+  animation: line-glow 2s ease-in-out infinite;
+}
+
+@keyframes line-glow {
+  0%, 100% {
+    box-shadow: 0 0 6px rgba(20, 184, 166, 0.3);
+    opacity: 0.8;
+  }
+  50% {
+    box-shadow: 0 0 12px rgba(20, 184, 166, 0.6);
+    opacity: 1;
+  }
+}
+
+/* Arrow hover effect */
+.scroll-arrow:hover .arrow-svg {
+  transform: scale(1.2);
+  color: #ffffff;
+  filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.4));
+  stroke-width: 4;
+}
+
+.scroll-arrow:hover .dynamic-line {
+  background: linear-gradient(to bottom, #ffffff, transparent);
+  opacity: 1;
+  box-shadow: 0 0 16px rgba(255, 255, 255, 0.6);
+}
+
 /* CTA */
 .cta { background: linear-gradient(135deg, #ff8935 0%, #ff7535 50%, #f7551a 100%); color: #ffffff; }
 .cta-inner {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: 20px;
+  text-align: center;
 }
 
 /* FAQ */
