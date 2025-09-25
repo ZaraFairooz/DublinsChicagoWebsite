@@ -1,5 +1,5 @@
 import './App.css'
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 
 export function Header() {
@@ -32,6 +32,56 @@ function Hero() {
 }
 
 function Steps() {
+  const stepRefs = useRef([]);
+  const lastScrollY = useRef(0);
+
+  useEffect(() => {
+    const observerOptions = {
+      threshold: [0, 0.1, 0.3, 0.5, 0.7, 0.9, 1],
+      rootMargin: '0px 0px -20px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const rect = entry.boundingClientRect;
+        const viewportHeight = window.innerHeight;
+        
+        // Calculate how much of the element is visible
+        const elementTop = rect.top;
+        const elementBottom = rect.bottom;
+        const elementHeight = rect.height;
+        
+        // Calculate visibility percentage
+        let visibilityRatio = 0;
+        if (elementTop < viewportHeight && elementBottom > 0) {
+          const visibleTop = Math.max(0, elementTop);
+          const visibleBottom = Math.min(viewportHeight, elementBottom);
+          const visibleHeight = visibleBottom - visibleTop;
+          visibilityRatio = Math.max(0, Math.min(1, visibleHeight / elementHeight));
+        }
+        
+        // Apply animation based on visibility
+        if (visibilityRatio > 0.1) {
+          entry.target.classList.add('animate-in');
+          entry.target.style.setProperty('--visibility-ratio', visibilityRatio);
+        } else {
+          entry.target.classList.remove('animate-in');
+          entry.target.style.setProperty('--visibility-ratio', 0);
+        }
+      });
+    }, observerOptions);
+
+    stepRefs.current.forEach((ref) => {
+      if (ref) observer.observe(ref);
+    });
+
+    return () => {
+      stepRefs.current.forEach((ref) => {
+        if (ref) observer.unobserve(ref);
+      });
+    };
+  }, []);
+
   return (
     <section id="how-it-works" className="section steps">
       <div className="container">
@@ -39,17 +89,26 @@ function Steps() {
           <div className="left">
             <h2>Three easy steps</h2>
             <div className="grid three">
-              <div className="card step">
+              <div 
+                ref={(el) => stepRefs.current[0] = el}
+                className="card step animate-card"
+              >
                 <div className="step-num">1</div>
                 <h3>Tell us what happened</h3>
                 <p>Share the basics about your job, what happened, and when. We are here to hear you and help you.</p>
               </div>
-              <div className="card step">
+              <div 
+                ref={(el) => stepRefs.current[1] = el}
+                className="card step animate-card"
+              >
                 <div className="step-num">2</div>
                 <h3>Get matched with a lawyer</h3>
                 <p>We find you the best employment attorney that matches exactly what you need.</p>
               </div>
-              <div className="card step">
+              <div 
+                ref={(el) => stepRefs.current[2] = el}
+                className="card step animate-card"
+              >
                 <div className="step-num">3</div>
                 <h3>Move forward with confidence</h3>
                 <p>You relax and we handle the rest.</p>
@@ -64,32 +123,99 @@ function Steps() {
 }
 
 function Services() {
+  const serviceRefs = useRef([]);
+
+  useEffect(() => {
+    const observerOptions = {
+      threshold: [0, 0.1, 0.3, 0.5, 0.7, 0.9, 1],
+      rootMargin: '0px 0px -20px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const rect = entry.boundingClientRect;
+        const viewportHeight = window.innerHeight;
+        
+        // Calculate how much of the element is visible
+        const elementTop = rect.top;
+        const elementBottom = rect.bottom;
+        const elementHeight = rect.height;
+        
+        // Calculate visibility percentage
+        let visibilityRatio = 0;
+        if (elementTop < viewportHeight && elementBottom > 0) {
+          const visibleTop = Math.max(0, elementTop);
+          const visibleBottom = Math.min(viewportHeight, elementBottom);
+          const visibleHeight = visibleBottom - visibleTop;
+          visibilityRatio = Math.max(0, Math.min(1, visibleHeight / elementHeight));
+        }
+        
+        // Apply animation based on visibility
+        if (visibilityRatio > 0.1) {
+          entry.target.classList.add('animate-in');
+          entry.target.style.setProperty('--visibility-ratio', visibilityRatio);
+        } else {
+          entry.target.classList.remove('animate-in');
+          entry.target.style.setProperty('--visibility-ratio', 0);
+        }
+      });
+    }, observerOptions);
+
+    serviceRefs.current.forEach((ref) => {
+      if (ref) observer.observe(ref);
+    });
+
+    return () => {
+      serviceRefs.current.forEach((ref) => {
+        if (ref) observer.unobserve(ref);
+      });
+    };
+  }, []);
+
   return (
     <section id="services" className="section services">
       <div className="container">
         <h2>We help with tough work situations</h2>
         <div className="grid three">
-          <div className="card service">
+          <div 
+            ref={(el) => serviceRefs.current[0] = el}
+            className="card service animate-service-card"
+          >
             <h3>Wrongful Termination</h3>
             <p>Fired unfairly or without cause? Learn your rights and options.</p>
           </div>
-          <div className="card service">
+          <div 
+            ref={(el) => serviceRefs.current[1] = el}
+            className="card service animate-service-card"
+          >
             <h3>Discrimination</h3>
             <p>Race, gender, age, disability, pregnancy—discrimination is illegal.</p>
           </div>
-          <div className="card service">
+          <div 
+            ref={(el) => serviceRefs.current[2] = el}
+            className="card service animate-service-card"
+          >
             <h3>Harassment</h3>
             <p>Hostile work environment or harassment from a manager or coworker.</p>
           </div>
-          <div className="card service">
+          <div 
+            ref={(el) => serviceRefs.current[3] = el}
+            className="card service animate-service-card"
+          >
             <h3>Retaliation</h3>
             <p>Demoted or fired after reporting misconduct or taking protected leave.</p>
           </div>
-          <div className="card service">
+          <div 
+            ref={(el) => serviceRefs.current[4] = el}
+            className="card service animate-service-card"
+          >
             <h3>Wage & Hour</h3>
             <p>Unpaid wages, overtime issues, misclassification, or missed breaks.</p>
           </div>
-          <div className="card service">
+          <div 
+            ref={(el) => serviceRefs.current[5] = el}
+            className="card service animate-service-card"
+          >
             <h3>Severance Reviews</h3>
             <p>Get a clear read on severance terms before you sign anything.</p>
           </div>

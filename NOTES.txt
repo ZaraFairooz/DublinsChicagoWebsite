@@ -1,7 +1,7 @@
 TO DO
 -  change text font
-- change hero background to an image 
-- change colors to orange, red, black
+- fix mobile view of header
+- fix mobile view of length spacing on titles on each section
 
 idea
 - make header to nav bar and nav bar will take up 
