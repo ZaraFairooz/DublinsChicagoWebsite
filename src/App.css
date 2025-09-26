@@ -223,80 +223,123 @@
 .animate-card:nth-child(2) { transition-delay: 100ms; }
 .animate-card:nth-child(3) { transition-delay: 200ms; }
 
-/* Scroll Arrow Animation */
-.scroll-arrow {
+/* Steps Animation */
+.steps-animation {
   position: relative;
   height: 100%;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
   opacity: 1;
   padding-top: 40px;
 }
 
-.arrow-container {
+.animation-container {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: 20px;
   will-change: transform;
-  transform: translateY(calc(var(--scroll-progress, 0) * 350px));
+  transform: translateY(calc(var(--scroll-progress, 0) * 200px));
 }
 
-.arrow-svg {
-  width: 72px;
-  height: 72px;
-  color: var(--accent);
-  will-change: transform;
-  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
-  stroke-width: 3;
-  transition: all 0.2s ease-out;
+.progress-ring {
+  position: relative;
+  width: 120px;
+  height: 120px;
 }
 
-.scroll-arrow[data-direction="down"] .arrow-svg {
-  transform: rotate(0deg);
+.progress-svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
 }
 
-.scroll-arrow[data-direction="up"] .arrow-svg {
-  transform: rotate(180deg);
+.progress-circle {
+  transition: stroke-dashoffset 0.3s ease-out;
+  filter: drop-shadow(0 0 8px rgba(20, 184, 166, 0.4));
 }
 
-.dynamic-line {
-  width: 4px;
-  height: calc(var(--scroll-progress, 0) * 200px + 20px);
-  background: linear-gradient(to bottom, var(--accent), transparent);
-  border-radius: 3px;
-  opacity: 0.9;
-  will-change: height, opacity;
-  box-shadow: 0 0 8px rgba(20, 184, 166, 0.4);
-  transition: height 0.1s ease-out, opacity 0.2s ease-out;
-  animation: line-glow 2s ease-in-out infinite;
+.progress-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  gap: 8px;
 }
 
-@keyframes line-glow {
+.step-indicator {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.step-indicator:nth-child(1) {
+  background: var(--accent);
+  box-shadow: 0 0 12px rgba(20, 184, 166, 0.6);
+}
+
+.floating-elements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.floating-dot {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+  animation: float 3s ease-in-out infinite;
+}
+
+.floating-dot:nth-child(1) {
+  top: 20%;
+  left: 30%;
+}
+
+.floating-dot:nth-child(2) {
+  top: 60%;
+  right: 25%;
+}
+
+.floating-dot:nth-child(3) {
+  bottom: 30%;
+  left: 40%;
+}
+
+@keyframes float {
   0%, 100% {
-    box-shadow: 0 0 6px rgba(20, 184, 166, 0.3);
-    opacity: 0.8;
+    transform: translateY(0px) scale(1);
+    opacity: 0.7;
   }
   50% {
-    box-shadow: 0 0 12px rgba(20, 184, 166, 0.6);
+    transform: translateY(-20px) scale(1.2);
     opacity: 1;
   }
 }
 
-/* Arrow hover effect */
-.scroll-arrow:hover .arrow-svg {
-  transform: scale(1.2);
-  color: #ffffff;
-  filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.4));
-  stroke-width: 4;
+/* Animation hover effect */
+.steps-animation:hover .progress-circle {
+  filter: drop-shadow(0 0 16px rgba(20, 184, 166, 0.8));
 }
 
-.scroll-arrow:hover .dynamic-line {
-  background: linear-gradient(to bottom, #ffffff, transparent);
-  opacity: 1;
-  box-shadow: 0 0 16px rgba(255, 255, 255, 0.6);
+.steps-animation:hover .step-indicator {
+  transform: scale(1.1);
 }
 
 /* CTA */
@@ -319,7 +362,7 @@
 
 /* FAQ */
 .faq { 
-  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), linear-gradient(135deg, #f7551a 0%, #f71a1a 50%, #550707 100%); 
+  background: #2a2a2a;
   color: #ffffff; 
   padding: 150px 0;
 }
@@ -427,6 +470,13 @@
   height: 48px;
   padding: 0 20px;
 }
+
+.cta .btn-lg {
+  height: 64px;
+  padding: 0 40px;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
 .btn-primary { background: var(--primary); color: #fff; box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 2px 8px rgba(37,99,235,0.2); }
 .btn-accent { background: var(--accent); color: #fff; box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 2px 8px rgba(20,184,166,0.2); }
 
@@ -521,8 +571,8 @@
     font-size: 18px;
   }
   
-  /* Hide scroll arrow on mobile */
-  .scroll-arrow {
+  /* Hide steps animation on mobile */
+  .steps-animation {
     display: none;
   }
 }

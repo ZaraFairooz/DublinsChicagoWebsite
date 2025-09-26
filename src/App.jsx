@@ -213,19 +213,43 @@ function Steps() {
             </div>
           </div>
           <div className="right">
-            <div ref={arrowRef} className="scroll-arrow" data-direction="down">
-              <div className="arrow-container">
-                <svg className="arrow-svg" viewBox="0 0 24 24" fill="none">
-                  <path 
-                    d="M12 3V21M12 21L6 15M12 21L18 15" 
-                    stroke="currentColor" 
-                    strokeWidth="3" 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round"
-                  />
-                  <circle cx="12" cy="3" r="2" fill="currentColor" />
-                </svg>
-                <div className="dynamic-line"></div>
+            <div ref={arrowRef} className="steps-animation" data-direction="down">
+              <div className="animation-container">
+                <div className="progress-ring">
+                  <svg className="progress-svg" viewBox="0 0 100 100">
+                    <circle
+                      className="progress-circle-bg"
+                      cx="50"
+                      cy="50"
+                      r="45"
+                      fill="none"
+                      stroke="rgba(255, 255, 255, 0.1)"
+                      strokeWidth="8"
+                    />
+                    <circle
+                      className="progress-circle"
+                      cx="50"
+                      cy="50"
+                      r="45"
+                      fill="none"
+                      stroke="var(--accent)"
+                      strokeWidth="8"
+                      strokeLinecap="round"
+                      strokeDasharray="283"
+                      strokeDashoffset="calc(283 - (283 * var(--scroll-progress, 0)))"
+                    />
+                  </svg>
+                  <div className="progress-content">
+                    <div className="step-indicator">1</div>
+                    <div className="step-indicator">2</div>
+                    <div className="step-indicator">3</div>
+                  </div>
+                </div>
+                <div className="floating-elements">
+                  <div className="floating-dot" style={{animationDelay: '0s'}}></div>
+                  <div className="floating-dot" style={{animationDelay: '0.5s'}}></div>
+                  <div className="floating-dot" style={{animationDelay: '1s'}}></div>
+                </div>
               </div>
             </div>
           </div>
