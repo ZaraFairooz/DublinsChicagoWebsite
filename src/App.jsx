@@ -184,7 +184,7 @@ function Steps() {
       <div className="container">
         <div className="layout">
           <div className="left">
-            <h2>Three easy steps</h2>
+            <h2>Three Easy Steps</h2>
             <div className="grid three">
               <div 
                 ref={(el) => stepRefs.current[0] = el}
@@ -312,7 +312,7 @@ function Services() {
   return (
     <section id="services" className="section services">
       <div className="container">
-        <h2>We help with tough work situations</h2>
+        <h2>We Help With Tough Work Situations</h2>
         <div className="grid three">
           <div 
             ref={(el) => serviceRefs.current[0] = el}
@@ -380,19 +380,21 @@ function FAQ() {
   return (
     <section id="faq" className="section faq">
       <div className="container">
-        <h2>Common questions</h2>
-        <details>
-          <summary>Do I have to pay anything upfront?</summary>
-          <p>Using Boss Fired Me is free. Your attorney will explain their fees if you choose to proceed.</p>
-        </details>
-        <details>
-          <summary>How fast can I speak with a lawyer?</summary>
-          <p>Many people are matched within 24–48 hours, and urgent cases can be faster.</p>
-        </details>
-        <details>
-          <summary>What if I’m not sure what kind of case I have?</summary>
-          <p>That’s okay. Share what happened and we’ll point you in the right direction.</p>
-        </details>
+        <h2>Frequently Asked <span className="gradient-text">Questions</span></h2>
+        <div className="faq-content">
+          <details>
+            <summary>Do I have to pay anything upfront?</summary>
+            <p>Using Boss Fired Me is free. Your attorney will explain their fees if you choose to proceed.</p>
+          </details>
+          <details>
+            <summary>How fast can I speak with a lawyer?</summary>
+            <p>Many people are matched within 24–48 hours, and urgent cases can be faster.</p>
+          </details>
+          <details>
+            <summary>What if I'm not sure what kind of case I have?</summary>
+            <p>That's okay. Share what happened and we'll point you in the right direction.</p>
+          </details>
+        </div>
       </div>
     </section>
   )

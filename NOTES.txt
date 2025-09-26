@@ -16,3 +16,6 @@ do before first draft
 - make arrow downwards even better
 - change background of services and questions
 - go over matt's contract's to do's
+
+
+- put a border around the cta section with shadow in the back

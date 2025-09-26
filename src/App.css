@@ -204,7 +204,7 @@
 .steps { background-color: rgb(43, 43, 43); color: #e4e2e2; padding: 150px 0;}
 .steps h3 {color: rgb(255, 255, 255);}
 .steps p {color: rgb(161, 159, 159);}
-.steps .step-num { width: 60px; height: 50px; border-radius: 999px; background: var(--accent); color: #fff; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; margin-bottom: 20px; }
+.steps .step-num { width: 60px; height: 50px; border-radius: 999px; background: var(--primary); color: #fff; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; margin-bottom: 20px; }
 
 /* Step card animations */
 .animate-card {
@@ -366,17 +366,62 @@
   color: #ffffff; 
   padding: 150px 0;
 }
-.faq details {
-  background: rgba(255, 255, 255, 0.222);
+.faq h2 {
+  text-align: center;
+  font-size: 50px;
+  line-height: 3;
+  font-family: "Playfair Display", Georgia, Cambria, "Times New Roman", Times, serif;
+  margin-bottom: 50px;
+}
+.gradient-text {
+  background: linear-gradient(135deg, #ffffff, #ff8000);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+.faq-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 800px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 40px 30px;
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.faq details {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
   border-radius: 12px;
-  padding: 16px 20px;
-  margin-bottom: 12px;
+  padding: 20px 24px;
+  margin-bottom: 16px;
+  width: 100%;
+  max-width: 600px;
+  transition: all 0.3s ease;
+}
+.faq details:hover {
+  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.15);
 }
 .faq summary {
   cursor: pointer;
   font-weight: 600;
+  font-size: 18px;
+  color: #ffffff;
+  text-align: center;
+}
+.faq details[open] summary {
+  margin-bottom: 16px;
+}
+.faq details p {
+  color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  margin: 0;
+  line-height: 1.6;
 }
 
 /* Footer */
@@ -536,7 +581,6 @@
 .animate-service-card:nth-child(5) { transition-delay: 400ms; }
 .animate-service-card:nth-child(6) { transition-delay: 500ms; }
 .cta h2 { font-size: 50px; line-height: 2; font-family: "Playfair Display", Georgia, Cambria, "Times New Roman", Times, serif; }
-.faq h2 { font-size: 50px; line-height: 3; font-family: "Playfair Display", Georgia, Cambria, "Times New Roman", Times, serif; }
 @media (max-width: 900px) {
   .form-row { grid-template-columns: 1fr; }
 }
@@ -550,7 +594,6 @@
     flex-direction: column;
     text-align: center;
   }
-  .steps .layout { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 768px) {
@@ -570,6 +613,8 @@
   .brand {
     font-size: 18px;
   }
+  
+  .steps .layout { grid-template-columns: 1fr; }
   
   /* Hide steps animation on mobile */
   .steps-animation {
