@@ -17,7 +17,7 @@ export function Header() {
     <header className="site-header">
       <div className="container header-inner">
         <Link to="/" className="brand">
-          <span className="brand-icon">⚖️</span>
+          <img src="/Pics/3.png" alt="Boss Fired Me Logo" className="brand-icon" />
           Boss Fired Me
         </Link>
         
@@ -64,6 +64,7 @@ function Hero() {
       </video>
       <div className="hero-overlay"></div>
       <div className="container hero-inner">
+        <img src="/Pics/3.png" alt="Boss Fired Me Logo" className="hero-logo" />
         <h1 className="hero-title">No Fees, Unless You Win</h1>
         <p className="subtitle">Wrongfully terminated or mistreated at work? We connect you with employment attorneys who can help.</p>
         <Link className="btn btn-accent" to="/employment-case-form">Start your case</Link>
@@ -444,6 +445,7 @@ export function Footer() {
       <div className="container">
         <div className="footer-content">
           <div className="footer-section">
+            <img src="/Pics/3.png" alt="Boss Fired Me Logo" className="footer-logo" />
             <div className="brand">Boss Fired Me</div>
             <div className="muted">© {new Date().getFullYear()} Boss Fired Me. All rights reserved.</div>
           </div>

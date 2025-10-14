@@ -60,19 +60,21 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 64px;
+  height: 120px;
   position: relative;
 }
 .brand { 
   font-weight: 800; 
-  font-size: 20px; 
+  font-size: 32px; 
   color: #ffffff; 
   display: flex;
   align-items: center;
   gap: 8px;
 }
 .brand-icon {
-  font-size: 24px;
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
   filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.3));
 }
 
@@ -191,7 +193,7 @@
 /* Hero */
 .hero { 
   position: relative;
-  padding: 150px 0 150px; 
+  padding: 10px 0 120px; 
   text-align: center; 
   color: #ffffff; 
   overflow: hidden;
@@ -215,22 +217,34 @@
   z-index: -1;
 }
 .hero .subtitle { color: rgba(255, 255, 255, 0.9); }
-.hero .btn.btn-accent {
-  background: rgba(0,0,0,0.25);
-  color: #ffffff;
-  border-color: rgba(255,255,255,0.35);
-  box-shadow: none;
+.hero .btn.btn-accent,
+.hero a.btn.btn-accent,
+.hero .btn-accent,
+.hero a.btn-accent {
+  background: linear-gradient(45deg, #FFD700, #FFA500, #FFD700, #FF8C00, #FFD700) !important;
+  background-size: 300% 300% !important;
+  color: #000000 !important;
+  border-color: #FFD700 !important;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.5), 0 0 40px rgba(255, 215, 0, 0.3) !important;
   backdrop-filter: saturate(120%) blur(2px);
   height: 64px;
   padding: 0 36px;
   font-size: 1.3rem;
   border-radius: 12px;
-  transition: transform 150ms ease, background-color 120ms ease, border-color 120ms ease;
+  transition: transform 150ms ease, box-shadow 150ms ease;
+  animation: goldenShine 3s ease-in-out infinite !important;
+  animation-play-state: running !important;
+  font-weight: 700;
+  position: relative;
+  z-index: 10;
 }
-.hero .btn.btn-accent:hover {
-  background: rgba(0,0,0,0.35);
-  border-color: rgba(255,255,255,0.5);
+.hero .btn.btn-accent:hover,
+.hero a.btn.btn-accent:hover,
+.hero .btn-accent:hover,
+.hero a.btn-accent:hover {
   transform: scale(1.06);
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.8), 0 0 60px rgba(255, 215, 0, 0.5);
+  animation-duration: 1.5s;
 }
 .hero-title {
   font-size: clamp(48px, 10vw, 96px);
@@ -243,6 +257,13 @@
   transition: transform 120ms linear, opacity 120ms linear;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8), -1px -1px 1px rgba(0, 0, 0, 0.8), 2px -2px 4px rgba(0, 0, 0, 0.8), -2px 2px 4px rgba(0, 0, 0, 0.8);
 }
+
+.hero-logo {
+  width: 300px;
+  height: auto;
+  margin-bottom: 10px;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
 .hero h1 {
   font-size: 70px;
   line-height: 1.1;
@@ -250,7 +271,7 @@
 }
 .subtitle { 
   color: var(--muted); 
-  margin-bottom: 90px; 
+  margin-bottom: 40px; 
   font-size: 1.3rem;
   line-height: 1.4;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8), -1px -1px 3px rgba(0, 0, 0, 0.8), 1px -1px 3px rgba(0, 0, 0, 0.8), -1px 1px 3px rgba(0, 0, 0, 0.8);
@@ -453,6 +474,13 @@
   position: relative;
   overflow: hidden;
 }
+
+.footer-logo {
+  width: 150px;
+  height: auto;
+  margin-bottom: 16px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
 .footer-video {
   position: absolute;
   top: 0;
@@ -570,7 +598,7 @@
   font-weight: 700;
 }
 .btn-primary { background: var(--primary); color: #fff; box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 2px 8px rgba(37,99,235,0.2); }
-.btn-accent { background: var(--accent); color: #fff; box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 2px 8px rgba(20,184,166,0.2); }
+.btn-accent:not(.hero .btn-accent):not(.hero a.btn-accent) { background: var(--accent); color: #fff; box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 2px 8px rgba(20,184,166,0.2); }
 
 /* CTA Button Jump Animation */
 .cta .btn {
@@ -586,10 +614,42 @@
   }
 }
 
+@keyframes goldenShine {
+  0% {
+    background-position: 0% 50%;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5), 0 0 40px rgba(255, 215, 0, 0.3);
+  }
+  50% {
+    background-position: 100% 50%;
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.8), 0 0 50px rgba(255, 215, 0, 0.6);
+  }
+  100% {
+    background-position: 0% 50%;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5), 0 0 40px rgba(255, 215, 0, 0.3);
+  }
+}
+
 /* Header button hover animation */
 .nav .btn { transition: transform 150ms ease, box-shadow 150ms ease; }
 .nav .btn:hover { transform: translateY(-1px) scale(1.04); box-shadow: 0 2px 6px rgba(37,99,235,0.25); }
 .nav .btn.btn-primary:hover { color: #ffffff; }
+
+/* Golden styling for navigation Get Started button */
+.nav .btn.btn-primary {
+  background: linear-gradient(45deg, #FFD700, #FFA500, #FFD700, #FF8C00, #FFD700) !important;
+  background-size: 300% 300% !important;
+  color: #000000 !important;
+  border-color: #FFD700 !important;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.5), 0 0 40px rgba(255, 215, 0, 0.3) !important;
+  animation: goldenShine 3s ease-in-out infinite !important;
+  font-weight: 700;
+}
+
+.nav .btn.btn-primary:hover {
+  color: #000000 !important;
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.8), 0 0 60px rgba(255, 215, 0, 0.5) !important;
+  animation-duration: 1.5s;
+}
 
 /* Ensure Link components maintain button styling */
 .nav a.btn,
@@ -617,13 +677,13 @@ a.btn:hover {
 }
 
 /* Ensure Link buttons get proper button styling */
-a.btn.btn-primary {
+a.btn.btn-primary:not(.nav .btn.btn-primary) {
   background: var(--primary) !important;
   color: #fff !important;
   box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 2px 8px rgba(37,99,235,0.2) !important;
 }
 
-a.btn.btn-accent {
+a.btn.btn-accent:not(.hero .btn.btn-accent) {
   background: var(--accent) !important;
   color: #fff !important;
   box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 2px 8px rgba(20,184,166,0.2) !important;
@@ -904,3 +964,33 @@ a.btn.btn-accent {
 .modal-body h3 { color:black; font-size: 22px; display: flex; justify-content: center; gap: 10px; margin-top: 16px; }
 .modal-body .muted { color: var(--muted);}
 .modal-actions { display: flex; justify-content: center; gap: 10px; margin-top: 16px; }
+
+/* Force golden hero button - highest priority */
+section.hero a.btn.btn-accent {
+  background: linear-gradient(45deg, #FFD700, #FFA500, #FFD700, #FF8C00, #FFD700) !important;
+  background-size: 300% 300% !important;
+  color: #000000 !important;
+  border-color: #FFD700 !important;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.5), 0 0 40px rgba(255, 215, 0, 0.3) !important;
+  animation: goldenShine 3s ease-in-out infinite !important;
+  animation-play-state: running !important;
+  font-weight: 700 !important;
+}
+
+/* Alternative simple golden button */
+.hero-button-golden {
+  background: #FFD700 !important;
+  color: #000000 !important;
+  border: 2px solid #FFA500 !important;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.8) !important;
+  animation: pulse 2s ease-in-out infinite !important;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(255, 215, 0, 1), 0 0 35px rgba(255, 215, 0, 0.6);
+  }
+}
