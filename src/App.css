@@ -70,6 +70,13 @@
   display: flex;
   align-items: center;
   gap: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 150ms ease;
+}
+
+.brand:hover {
+  color: #3a3aed;
 }
 .brand-icon {
   width: 200px;
@@ -91,7 +98,7 @@
 }
 
 .desktop-nav a:hover { 
-  color: var(--primary); 
+  color: #3a3aed; 
   transform: translateY(-1px); 
 }
 
@@ -182,7 +189,7 @@
 }
 
 .mobile-nav a:hover {
-  color: var(--primary);
+  color: #3a3aed;
 }
 
 .mobile-nav .btn {
@@ -280,9 +287,9 @@
 /* Steps */
 .steps { 
   background: 
-    radial-gradient(circle at 20% 80%, rgba(255, 140, 0, 0.3) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(255, 107, 53, 0.2) 0%, transparent 50%),
-    radial-gradient(circle at 40% 40%, rgba(255, 69, 0, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 20% 80%, rgba(255, 215, 0, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 165, 0, 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(255, 140, 0, 0.15) 0%, transparent 50%),
     linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 25%, #1f1f1f 50%, #2a2a2a 75%, #1a1a1a 100%);
   color: #e4e2e2; 
   padding: 150px 0;
@@ -306,7 +313,7 @@
   font-size: 1.1rem;
   line-height: 1.5;
 }
-.steps .step-num { width: 60px; height: 50px; border-radius: 999px; background: var(--primary); color: #fff; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; margin-bottom: 20px; }
+.steps .step-num { width: 60px; height: 50px; border-radius: 999px; background: #1717aa; color: #ffffff; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; margin-bottom: 20px; }
 
 /* Step content layout */
 .steps .step-content {
@@ -381,10 +388,10 @@
 /* FAQ */
 .faq { 
   background: 
-    radial-gradient(circle at 30% 70%, rgba(255, 140, 0, 0.2) 0%, transparent 50%),
-    radial-gradient(circle at 70% 30%, rgba(255, 69, 0, 0.15) 0%, transparent 50%),
-    radial-gradient(circle at 15% 15%, rgba(255, 107, 53, 0.1) 0%, transparent 40%),
-    radial-gradient(circle at 85% 85%, rgba(255, 140, 0, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 30% 70%, rgba(255, 215, 0, 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 70% 30%, rgba(255, 140, 0, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 15% 15%, rgba(255, 165, 0, 0.1) 0%, transparent 40%),
+    radial-gradient(circle at 85% 85%, rgba(255, 215, 0, 0.08) 0%, transparent 40%),
     linear-gradient(45deg, #1c1c1c 0%, #2e2e2e 25%, #1f1f1f 50%, #2a2a2a 75%, #1c1c1c 100%);
   color: #ffffff; 
   padding: 150px 0;
@@ -545,7 +552,7 @@
   transition: color 150ms ease;
 }
 .contact-btn:hover {
-  color: var(--primary);
+  color: #3a3aed;
 }
 .contact-btn svg {
   flex-shrink: 0;
@@ -567,7 +574,7 @@
   transition: color 150ms ease;
 }
 .social-btn:hover {
-  color: var(--primary);
+  color: #3a3aed;
 }
 .social-btn svg {
   flex-shrink: 0;
@@ -765,9 +772,9 @@ a.btn.btn-accent:not(.hero .btn.btn-accent) {
 /* Services section theming */
 .services { 
   background: 
-    radial-gradient(ellipse at 10% 20%, rgba(255, 140, 0, 0.25) 0%, transparent 60%),
-    radial-gradient(ellipse at 90% 80%, rgba(255, 69, 0, 0.2) 0%, transparent 60%),
-    radial-gradient(ellipse at 50% 10%, rgba(255, 107, 53, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 10% 20%, rgba(255, 215, 0, 0.25) 0%, transparent 60%),
+    radial-gradient(ellipse at 90% 80%, rgba(255, 140, 0, 0.2) 0%, transparent 60%),
+    radial-gradient(ellipse at 50% 10%, rgba(255, 165, 0, 0.15) 0%, transparent 50%),
     linear-gradient(180deg, #0f0f0f 0%, #1e1e1e 30%, #2c2c2c 60%, #1a1a1a 100%);
   color: #ffffff; 
   padding: 150px 0;
@@ -809,7 +816,7 @@ a.btn.btn-accent:not(.hero .btn.btn-accent) {
 }
 .services .card.service { background: #ffffff; color: #0f172a; border-color: rgba(2,6,23,0.08); position: relative; z-index: 1; }
 .services .card.service h3 { 
-  color: var(--primary); 
+  color: #000080; 
   font-size: 1.5rem; 
   font-weight: 700; 
   margin-bottom: 0.75rem;

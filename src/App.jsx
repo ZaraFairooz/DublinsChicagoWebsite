@@ -453,12 +453,12 @@ export function Footer() {
           <div className="footer-section">
             <h3>Contact</h3>
             <div className="contact-buttons">
-              <a href="mailto:example@bossfiredme.com" className="contact-btn">
+              <a href="mailto:info@bossfiredme.com" className="contact-btn">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                   <polyline points="22,6 12,13 2,6"/>
                 </svg>
-                example@bossfiredme.com
+                info@bossfiredme.com
               </a>
               <a href="tel:+1234567890" className="contact-btn">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">

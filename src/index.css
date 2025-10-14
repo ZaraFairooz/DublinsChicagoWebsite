@@ -25,7 +25,7 @@ body {
 #root { min-height: 100vh; }
 
 a { color: var(--primary); text-decoration: none; }
-a:hover { color: #ea580c; }
+a:hover { color: #3a3aed; }
 
 h1, h2, h3 { margin: 0 0 12px; }
 p { margin: 0 0 12px; }
