@@ -972,6 +972,28 @@ a.btn.btn-accent:not(.hero .btn.btn-accent) {
 .modal-body .muted { color: var(--muted);}
 .modal-actions { display: flex; justify-content: center; gap: 10px; margin-top: 16px; }
 
+/* Modal button styling */
+.modal .btn.btn-primary,
+.modal-overlay .modal .btn.btn-primary,
+.modal-actions .btn.btn-primary,
+.modal a.btn.btn-primary,
+.modal-overlay a.btn.btn-primary,
+.modal-actions a.btn.btn-primary {
+  background: #3a3aed !important;
+  color: #ffffff !important;
+  border-color: #3a3aed !important;
+}
+
+.modal .btn.btn-primary:hover,
+.modal-overlay .modal .btn.btn-primary:hover,
+.modal-actions .btn.btn-primary:hover,
+.modal a.btn.btn-primary:hover,
+.modal-overlay a.btn.btn-primary:hover,
+.modal-actions a.btn.btn-primary:hover {
+  background: #2a2ac7 !important;
+  color: #ffffff !important;
+}
+
 /* Force golden hero button - highest priority */
 section.hero a.btn.btn-accent {
   background: linear-gradient(45deg, #FFD700, #FFA500, #FFD700, #FF8C00, #FFD700) !important;
@@ -1000,4 +1022,17 @@ section.hero a.btn.btn-accent {
   50% {
     box-shadow: 0 0 25px rgba(255, 215, 0, 1), 0 0 35px rgba(255, 215, 0, 0.6);
   }
+}
+
+/* ULTIMATE MODAL BUTTON OVERRIDE - HIGHEST PRIORITY */
+.modal-overlay .modal .modal-actions a.btn.btn-primary {
+  background: #3a3aed !important;
+  color: #ffffff !important;
+  border-color: #3a3aed !important;
+  box-shadow: none !important;
+}
+
+.modal-overlay .modal .modal-actions a.btn.btn-primary:hover {
+  background: #2a2ac7 !important;
+  color: #ffffff !important;
 }
