@@ -9,21 +9,21 @@ export default function Contact() {
           <div className="form-row">
             <div className="form-field">
               <label htmlFor="name">Full name</label>
-              <input id="name" name="name" type="text" placeholder="Jane Doe" required />
+              <input id="name" name="name" type="text" placeholder="Enter your name" required />
             </div>
             <div className="form-field">
               <label htmlFor="email">Email</label>
-              <input id="email" name="email" type="email" placeholder="you@example.com" required />
+              <input id="email" name="email" type="email" placeholder="Enter your email" required />
             </div>
           </div>
           <div className="form-row">
             <div className="form-field">
               <label htmlFor="phone">Phone</label>
-              <input id="phone" name="phone" type="tel" placeholder="(555) 123-4567" />
+              <input id="phone" name="phone" type="tel" placeholder="Enter your phone number" />
             </div>
             <div className="form-field">
               <label htmlFor="subject">Subject</label>
-              <input id="subject" name="subject" type="text" placeholder="Wrongful termination" />
+              <input id="subject" name="subject" type="text" placeholder="Example: Wrongful termination" />
             </div>
           </div>
           <div className="form-field">
