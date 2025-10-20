@@ -1,6 +1,8 @@
 import { useState } from 'react'
+import { useLanguage } from '../LanguageContext.jsx'
 
 export default function Contact() {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -45,7 +47,7 @@ export default function Contact() {
       console.log('Email data ready to send:', emailData)
       
       // Simulate successful email sending
-      alert('Thank you! Your message has been sent to bfairooz1@gmail.com')
+      alert(t('thankYouMessage'))
       
       // Reset form
       setFormData({
@@ -67,28 +69,28 @@ export default function Contact() {
       <div className="contact-bg"></div>
       <div className="contact-overlay"></div>
       <div className="container" id="contact-form">
-        <h1>Contact us</h1>
+        <h1>{t('contactUs')}</h1>
         <form className="contact-form" onSubmit={handleSubmit}>
           <div className="form-row">
             <div className="form-field">
-              <label htmlFor="name">Full name</label>
+              <label htmlFor="name">{t('fullName')}</label>
               <input 
                 id="name" 
                 name="name" 
                 type="text" 
-                placeholder="Enter your name" 
+                placeholder={t('enterYourName')} 
                 value={formData.name}
                 onChange={handleInputChange}
                 required 
               />
             </div>
             <div className="form-field">
-              <label htmlFor="email">Email</label>
+              <label htmlFor="email">{t('email')}</label>
               <input 
                 id="email" 
                 name="email" 
                 type="email" 
-                placeholder="Enter your email" 
+                placeholder={t('enterYourEmail')} 
                 value={formData.email}
                 onChange={handleInputChange}
                 required 
@@ -97,40 +99,40 @@ export default function Contact() {
           </div>
           <div className="form-row">
             <div className="form-field">
-              <label htmlFor="phone">Phone</label>
+              <label htmlFor="phone">{t('phone')}</label>
               <input 
                 id="phone" 
                 name="phone" 
                 type="tel" 
-                placeholder="Enter your phone number" 
+                placeholder={t('enterYourPhone')} 
                 value={formData.phone}
                 onChange={handleInputChange}
               />
             </div>
             <div className="form-field">
-              <label htmlFor="subject">Subject</label>
+              <label htmlFor="subject">{t('subject')}</label>
               <input 
                 id="subject" 
                 name="subject" 
                 type="text" 
-                placeholder="Example: Wrongful termination" 
+                placeholder={t('exampleSubject')} 
                 value={formData.subject}
                 onChange={handleInputChange}
               />
             </div>
           </div>
           <div className="form-field">
-            <label htmlFor="message">Message</label>
+            <label htmlFor="message">{t('message')}</label>
             <textarea 
               id="message" 
               name="message" 
               rows={6} 
-              placeholder="Briefly describe what happened" 
+              placeholder={t('describeWhatHappened')} 
               value={formData.message}
               onChange={handleInputChange}
             />
           </div>
-          <button type="submit" className="btn btn-primary btn-lg">Send</button>
+          <button type="submit" className="btn btn-primary btn-lg">{t('send')}</button>
         </form>
       </div>
     </section>

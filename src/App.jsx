@@ -1,9 +1,12 @@
 import './App.css'
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useLanguage } from './LanguageContext.jsx'
 
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState(false);
+  const { language, changeLanguage, t } = useLanguage();
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -13,21 +16,57 @@ export function Header() {
     setIsMobileMenuOpen(false);
   };
 
+  const toggleLanguageMenu = () => {
+    setIsLanguageMenuOpen(!isLanguageMenuOpen);
+  };
+
+  const handleLanguageChange = (newLanguage) => {
+    changeLanguage(newLanguage);
+    setIsLanguageMenuOpen(false);
+  };
+
   return (
     <header className="site-header">
       <div className="container header-inner">
         <Link to="/" className="brand">
           <img src="/Pics/3.png" alt="Boss Fired Me Logo" className="brand-icon" />
-          Boss Fired Me
+          {t('brand')}
         </Link>
         
         {/* Desktop Navigation */}
         <nav className="nav desktop-nav">
-          <Link to="/#services">Services</Link>
-          <Link to="/#how-it-works">How it works</Link>
-          <Link to="/#faq">FAQ</Link>
-          <Link to="/contact">Contact</Link>
-          <Link className="btn btn-primary" to="/employment-case-form">Get Started</Link>
+          <Link to="/#services">{t('services')}</Link>
+          <Link to="/#how-it-works">{t('howItWorks')}</Link>
+          <Link to="/#faq">{t('faq')}</Link>
+          <Link to="/contact">{t('contact')}</Link>
+          <Link className="btn btn-primary" to="/employment-case-form">{t('getStarted')}</Link>
+          
+          {/* Language Switcher */}
+          <div className="language-switcher">
+            <button 
+              className="language-btn" 
+              onClick={toggleLanguageMenu}
+              aria-label={t('language')}
+            >
+              {language === 'en' ? 'EN' : 'ES'}
+            </button>
+            {isLanguageMenuOpen && (
+              <div className="language-menu">
+                <button 
+                  className={language === 'en' ? 'active' : ''} 
+                  onClick={() => handleLanguageChange('en')}
+                >
+                  {t('english')}
+                </button>
+                <button 
+                  className={language === 'es' ? 'active' : ''} 
+                  onClick={() => handleLanguageChange('es')}
+                >
+                  {t('spanish')}
+                </button>
+              </div>
+            )}
+          </div>
         </nav>
 
         {/* Mobile Menu Button */}
@@ -45,11 +84,27 @@ export function Header() {
 
         {/* Mobile Navigation */}
         <nav className={`nav mobile-nav ${isMobileMenuOpen ? 'open' : ''}`}>
-          <Link to="/#services" onClick={closeMobileMenu}>Services</Link>
-          <Link to="/#how-it-works" onClick={closeMobileMenu}>How it works</Link>
-          <Link to="/#faq" onClick={closeMobileMenu}>FAQ</Link>
-          <Link to="/contact" onClick={closeMobileMenu}>Contact</Link>
-          <Link className="btn btn-primary" to="/employment-case-form" onClick={closeMobileMenu}>Get Started</Link>
+          <Link to="/#services" onClick={closeMobileMenu}>{t('services')}</Link>
+          <Link to="/#how-it-works" onClick={closeMobileMenu}>{t('howItWorks')}</Link>
+          <Link to="/#faq" onClick={closeMobileMenu}>{t('faq')}</Link>
+          <Link to="/contact" onClick={closeMobileMenu}>{t('contact')}</Link>
+          <Link className="btn btn-primary" to="/employment-case-form" onClick={closeMobileMenu}>{t('getStarted')}</Link>
+          
+          {/* Mobile Language Switcher */}
+          <div className="mobile-language-switcher">
+            <button 
+              className={language === 'en' ? 'active' : ''} 
+              onClick={() => handleLanguageChange('en')}
+            >
+              {t('english')}
+            </button>
+            <button 
+              className={language === 'es' ? 'active' : ''} 
+              onClick={() => handleLanguageChange('es')}
+            >
+              {t('spanish')}
+            </button>
+          </div>
         </nav>
       </div>
     </header>
@@ -57,6 +112,8 @@ export function Header() {
 }
 
 function Hero() {
+  const { t } = useLanguage();
+  
   return (
     <section className="hero">
       <video className="hero-video" autoPlay muted loop playsInline>
@@ -65,9 +122,9 @@ function Hero() {
       <div className="hero-overlay"></div>
       <div className="container hero-inner">
         <img src="/Pics/3.png" alt="Boss Fired Me Logo" className="hero-logo" />
-        <h1 className="hero-title">No Fees, Unless You Win</h1>
-        <p className="subtitle">Wrongfully terminated or mistreated at work? We connect you with employment attorneys who can help.</p>
-        <Link className="btn btn-accent" to="/employment-case-form">Start your case</Link>
+        <h1 className="hero-title">{t('heroTitle')}</h1>
+        <p className="subtitle">{t('heroSubtitle')}</p>
+        <Link className="btn btn-accent" to="/employment-case-form">{t('startYourCase')}</Link>
       </div>
     </section>
   )
@@ -76,6 +133,7 @@ function Hero() {
 function Steps() {
   const stepRefs = useRef([]);
   const titleRef = useRef(null);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const observerOptions = {
@@ -169,7 +227,7 @@ function Steps() {
       <div className="container">
         <div className="layout">
           <div className="left">
-            <h2 ref={titleRef}>Three Easy Steps</h2>
+            <h2 ref={titleRef}>{t('threeEasySteps')}</h2>
             <div className="grid three">
               <div 
                 ref={(el) => stepRefs.current[0] = el}
@@ -178,8 +236,8 @@ function Steps() {
                 <div className="step-num">1</div>
                 <div className="step-content">
                   <div className="step-text">
-                    <h3>Tell us what happened</h3>
-                    <p>Share the basics about your job, what happened, and when. We are here to hear you and help you.</p>
+                    <h3>{t('step1Title')}</h3>
+                    <p>{t('step1Description')}</p>
                   </div>
                   <div className="step-image">
                     <img src="/Pics/complaint.gif" alt="Complaint illustration" />
@@ -196,8 +254,8 @@ function Steps() {
                     <img src="/Pics/lawyerMatch.gif" alt="Lawyer match illustration" />
                   </div>
                   <div className="step-text">
-                    <h3>Get matched with a lawyer</h3>
-                    <p>We find you the best employment attorney that matches exactly what you need.</p>
+                    <h3>{t('step2Title')}</h3>
+                    <p>{t('step2Description')}</p>
                   </div>
                 </div>
               </div>
@@ -208,8 +266,8 @@ function Steps() {
                 <div className="step-num">3</div>
                 <div className="step-content">
                   <div className="step-text">
-                    <h3>Move forward with confidence</h3>
-                    <p>You relax and we handle the rest.</p>
+                    <h3>{t('step3Title')}</h3>
+                    <p>{t('step3Description')}</p>
                   </div>
                   <div className="step-image">
                     <img src="/Pics/like.gif" alt="Like illustration" />
@@ -227,6 +285,7 @@ function Steps() {
 function Services() {
   const serviceRefs = useRef([]);
   const titleRef = useRef(null);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const observerOptions = {
@@ -318,49 +377,49 @@ function Services() {
   return (
     <section id="services" className="section services">
       <div className="container">
-        <h2 ref={titleRef}>We Help With Tough Work Situations</h2>
+        <h2 ref={titleRef}>{t('servicesTitle')}</h2>
         <div className="grid three">
           <div 
             ref={(el) => serviceRefs.current[0] = el}
             className="card service animate-service-card"
           >
-            <h3>Wrongful Termination</h3>
-            <p>Fired unfairly or without cause? Learn your rights and options.</p>
+            <h3>{t('wrongfulTermination')}</h3>
+            <p>{t('wrongfulTerminationDesc')}</p>
           </div>
           <div 
             ref={(el) => serviceRefs.current[1] = el}
             className="card service animate-service-card"
           >
-            <h3>Discrimination</h3>
-            <p>Race, gender, age, disability, pregnancy—discrimination is illegal.</p>
+            <h3>{t('discrimination')}</h3>
+            <p>{t('discriminationDesc')}</p>
           </div>
           <div 
             ref={(el) => serviceRefs.current[2] = el}
             className="card service animate-service-card"
           >
-            <h3>Harassment</h3>
-            <p>Hostile work environment or harassment from a manager or coworker.</p>
+            <h3>{t('harassment')}</h3>
+            <p>{t('harassmentDesc')}</p>
           </div>
           <div 
             ref={(el) => serviceRefs.current[3] = el}
             className="card service animate-service-card"
           >
-            <h3>Retaliation</h3>
-            <p>Demoted or fired after reporting misconduct or taking protected leave.</p>
+            <h3>{t('retaliation')}</h3>
+            <p>{t('retaliationDesc')}</p>
           </div>
           <div 
             ref={(el) => serviceRefs.current[4] = el}
             className="card service animate-service-card"
           >
-            <h3>Wage & Hour</h3>
-            <p>Unpaid wages, overtime issues, misclassification, or missed breaks.</p>
+            <h3>{t('wageHour')}</h3>
+            <p>{t('wageHourDesc')}</p>
           </div>
           <div 
             ref={(el) => serviceRefs.current[5] = el}
             className="card service animate-service-card"
           >
-            <h3>Family Medical Leave</h3>
-            <p>Protected leave for family or medical reasons—know your rights.</p>
+            <h3>{t('familyMedicalLeave')}</h3>
+            <p>{t('familyMedicalLeaveDesc')}</p>
           </div>
         </div>
       </div>
@@ -371,6 +430,7 @@ function Services() {
 
 function FAQ() {
   const titleRef = useRef(null);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -415,19 +475,19 @@ function FAQ() {
   return (
     <section id="faq" className="section faq">
       <div className="container">
-        <h2 ref={titleRef}>Frequently Asked <span className="gradient-text">Questions</span></h2>
+        <h2 ref={titleRef}>{t('frequentlyAskedQuestions')} <span className="gradient-text">{t('questions')}</span></h2>
         <div className="faq-content">
           <details>
-            <summary>Do I have to pay anything upfront?</summary>
-            <p>Using Boss Fired Me is free. Your attorney will explain their fees if you choose to proceed.</p>
+            <summary>{t('faq1Question')}</summary>
+            <p>{t('faq1Answer')}</p>
           </details>
           <details>
-            <summary>How fast can I speak with a lawyer?</summary>
-            <p>Many people are matched within 24–48 hours, and urgent cases can be faster.</p>
+            <summary>{t('faq2Question')}</summary>
+            <p>{t('faq2Answer')}</p>
           </details>
           <details>
-            <summary>What if I'm not sure what kind of case I have?</summary>
-            <p>That's okay. Share what happened and we'll point you in the right direction.</p>
+            <summary>{t('faq3Question')}</summary>
+            <p>{t('faq3Answer')}</p>
           </details>
         </div>
       </div>
@@ -436,6 +496,8 @@ function FAQ() {
 }
 
 export function Footer() {
+  const { t } = useLanguage();
+  
   return (
     <footer className="site-footer">
       <video className="footer-video" autoPlay muted loop playsInline>
@@ -446,12 +508,12 @@ export function Footer() {
         <div className="footer-content">
           <div className="footer-section">
             <img src="/Pics/3.png" alt="Boss Fired Me Logo" className="footer-logo" />
-            <div className="brand">Boss Fired Me</div>
-            <div className="muted">© {new Date().getFullYear()} Boss Fired Me. All rights reserved.</div>
+            <div className="brand">{t('footerBrand')}</div>
+            <div className="muted">{t('footerCopyright', { year: new Date().getFullYear() })}</div>
           </div>
           
           <div className="footer-section">
-            <h3>Contact</h3>
+            <h3>{t('footerContact')}</h3>
             <div className="contact-buttons">
               <a href="mailto:info@bossfiredme.com" className="contact-btn">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -470,13 +532,13 @@ export function Footer() {
           </div>
           
           <div className="footer-section">
-            <h3>Follow Us</h3>
+            <h3>{t('footerFollowUs')}</h3>
             <div className="social-buttons">
               <a href="https://linkedin.com/company/bossfiredme" className="social-btn" target="_blank" rel="noopener noreferrer">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                 </svg>
-                LinkedIn
+                {t('linkedin')}
               </a>
               <a href="https://instagram.com/bossfiredme" className="social-btn" target="_blank" rel="noopener noreferrer">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -484,19 +546,19 @@ export function Footer() {
                   <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
                   <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
                 </svg>
-                Instagram
+                {t('instagram')}
               </a>
               <a href="https://facebook.com/bossfiredme" className="social-btn" target="_blank" rel="noopener noreferrer">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
                 </svg>
-                Facebook
+                {t('facebook')}
               </a>
               <a href="https://tiktok.com/@bossfiredme" className="social-btn" target="_blank" rel="noopener noreferrer">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
                 </svg>
-                TikTok
+                {t('tiktok')}
               </a>
             </div>
           </div>

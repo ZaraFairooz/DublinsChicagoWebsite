@@ -5,6 +5,7 @@ import './index.css'
 import App, { Header, Footer } from './App.jsx'
 import Contact from './pages/Contact.jsx'
 import EmploymentCaseForm from './pages/EmploymentCaseForm.jsx'
+import { LanguageProvider, useLanguage } from './LanguageContext.jsx'
 
 function ScrollToHash() {
   const { hash } = useLocation()
@@ -21,6 +22,8 @@ function ScrollToHash() {
 
 function EngagementModal() {
   const [open, setOpen] = useState(false)
+  const { t } = useLanguage()
+  
   useEffect(() => {
     const shown = sessionStorage.getItem('bfm_modal_shown')
     if (shown) return
@@ -38,8 +41,8 @@ function EngagementModal() {
           <h3>Do you have a situation our lawyers can help with?</h3>
         </div>
         <div className="modal-actions">
-          <button className="btn" onClick={() => setOpen(false)}>No</button>
-          <Link className="btn btn-primary" to="/employment-case-form" onClick={() => setOpen(false)}>Yes</Link>
+          <button className="btn" onClick={() => setOpen(false)}>{t('no')}</button>
+          <Link className="btn btn-primary" to="/employment-case-form" onClick={() => setOpen(false)}>{t('yes')}</Link>
         </div>
       </div>
     </div>
@@ -87,6 +90,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <LanguageProvider>
+      <RouterProvider router={router} />
+    </LanguageProvider>
   </StrictMode>,
 )

@@ -1,8 +1,10 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useLanguage } from '../LanguageContext.jsx'
 import './EmploymentCaseForm.css'
 
 export default function EmploymentCaseForm() {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     // Step 1 - Contact Info
     fullName: '',
@@ -96,7 +98,7 @@ export default function EmploymentCaseForm() {
         setCurrentStep(currentStep + 1)
       }
     } else {
-      alert('Please fill in all required fields before proceeding.')
+      alert(t('pleaseFillRequired'))
     }
   }
 
@@ -113,7 +115,7 @@ export default function EmploymentCaseForm() {
     const allStepsValid = [1, 2, 3, 4, 5].every(step => validateStep(step))
     
     if (!allStepsValid) {
-      alert('Please complete all required fields before submitting.')
+      alert(t('pleaseCompleteRequired'))
       return
     }
     
@@ -173,7 +175,7 @@ export default function EmploymentCaseForm() {
       
       // Simulate successful email sending
       setIsSubmitting(false)
-      alert('Thank you! Your case has been submitted to bfairooz1@gmail.com. We will contact you within 24 hours.')
+      alert(t('thankYouCase'))
     } catch (error) {
       console.error('Error:', error)
       setIsSubmitting(false)
@@ -183,11 +185,11 @@ export default function EmploymentCaseForm() {
 
   const renderStep1 = () => (
     <div className="form-step">
-      <h2>Step 1 - Contact Info</h2>
-      <p className="step-description">(so we can reach you about your case)</p>
+      <h2>{t('step1ContactInfo')}</h2>
+      <p className="step-description">{t('step1Description')}</p>
       
       <div className="form-group">
-        <label htmlFor="fullName">Full Name: <span className="required">*</span></label>
+        <label htmlFor="fullName">{t('fullName')}: <span className="required">{t('required')}</span></label>
         <input
           type="text"
           id="fullName"
@@ -199,7 +201,7 @@ export default function EmploymentCaseForm() {
       </div>
       
       <div className="form-group">
-        <label htmlFor="phoneNumber">Phone Number: <span className="required">*</span></label>
+        <label htmlFor="phoneNumber">{t('phoneNumber')}: <span className="required">{t('required')}</span></label>
         <input
           type="tel"
           id="phoneNumber"
@@ -211,7 +213,7 @@ export default function EmploymentCaseForm() {
       </div>
       
       <div className="form-group">
-        <label htmlFor="emailAddress">Email Address: <span className="required">*</span></label>
+        <label htmlFor="emailAddress">{t('emailAddress')}: <span className="required">{t('required')}</span></label>
         <input
           type="email"
           id="emailAddress"
@@ -706,7 +708,7 @@ export default function EmploymentCaseForm() {
       <div className="form-container">
         <div className="form-header">
           <Link to="/" className="back-link">← Back to Home</Link>
-          <h1>Employment Case Questionnaire</h1>
+          <h1>{t('employmentCaseQuestionnaire')}</h1>
           <div className="progress-bar">
             <div 
               className="progress-fill" 
@@ -722,13 +724,13 @@ export default function EmploymentCaseForm() {
           <div className="form-navigation">
             {currentStep > 1 && (
               <button type="button" onClick={handlePrevious} className="btn btn-secondary">
-                Previous
+                {t('back')}
               </button>
             )}
             
             {currentStep < 6 ? (
               <button type="button" onClick={handleNext} className="btn btn-primary">
-                Next
+                {t('next')}
               </button>
             ) : (
               <button 
@@ -737,7 +739,7 @@ export default function EmploymentCaseForm() {
                 className="btn btn-primary btn-lg"
                 disabled={isSubmitting}
               >
-                {isSubmitting ? 'Submitting...' : 'Submit My Case for Review'}
+                {isSubmitting ? 'Submitting...' : t('submitMyCase')}
               </button>
             )}
           </div>
