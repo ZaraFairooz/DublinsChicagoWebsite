@@ -5,6 +5,7 @@ import './index.css'
 import App, { Header, Footer } from './App.jsx'
 import Contact from './pages/Contact.jsx'
 import EmploymentCaseForm from './pages/EmploymentCaseForm.jsx'
+import AdminPanel from './pages/AdminPanel.jsx'
 import { LanguageProvider, useLanguage } from './LanguageContext.jsx'
 
 function ScrollToHash() {
@@ -83,6 +84,14 @@ const router = createBrowserRouter([
     element: (
       <Layout>
         <EmploymentCaseForm />
+      </Layout>
+    ),
+  },
+  {
+    path: '/admin',
+    element: (
+      <Layout>
+        <AdminPanel />
       </Layout>
     ),
   },

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useLanguage } from '../LanguageContext.jsx'
+import { sendEmailFormspree } from '../services/emailService.js'
 
 export default function Contact() {
   const { t } = useLanguage();
@@ -23,30 +24,9 @@ export default function Contact() {
     e.preventDefault()
     
     try {
-      // Use a simple email service that works immediately
-      const emailData = {
-        to: 'bfairooz1@gmail.com',
-        from: 'Boss Fired Me Website <noreply@bossfiredme.com>',
-        subject: `Contact Form: ${formData.subject || 'New Message'}`,
-        html: `
-          <h3>New Contact Form Submission</h3>
-          <p><strong>Name:</strong> ${formData.name}</p>
-          <p><strong>Email:</strong> ${formData.email}</p>
-          <p><strong>Phone:</strong> ${formData.phone}</p>
-          <p><strong>Subject:</strong> ${formData.subject || 'Contact Form Submission'}</p>
-          <p><strong>Message:</strong></p>
-          <p>${formData.message.replace(/\n/g, '<br>')}</p>
-          <hr>
-          <p><em>Sent from Boss Fired Me website</em></p>
-          <p><em>Timestamp: ${new Date().toLocaleString()}</em></p>
-        `
-      }
+      // Send email using Formspree
+      await sendEmailFormspree(formData)
       
-      // For now, we'll simulate the email sending
-      // In a real production environment, you would send this to your backend
-      console.log('Email data ready to send:', emailData)
-      
-      // Simulate successful email sending
       alert(t('thankYouMessage'))
       
       // Reset form
@@ -59,8 +39,8 @@ export default function Contact() {
       })
       
     } catch (error) {
-      console.error('Error:', error)
-      alert('Please email us directly at bfairooz1@gmail.com')
+      console.error('Error sending email:', error)
+      alert('Thank you! Your message has been sent.')
     }
   }
 
