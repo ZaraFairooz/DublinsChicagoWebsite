@@ -1,20 +1,19 @@
 TO DO
--  change text font
-- make hero's sub text grey
-- add more animations
--make cta's sub title grey 
+- change text fonts and colors
+- change string var to int var for pho no on forms n contact n fill out all for contact
+- fix the terms address
+- do 2 step verif to matt's email 
 
-
-idea
-- make header to nav bar and nav bar will take up 
-entire page from bottom up like kirkland and ellis
-
-do before first draft
-- change background of services
-- go over matt's contract's to do's
-
-
-- put a border around the cta section with shadow in the back
-
-- make a google doc of sitemap and robots.txt 
-- add seo 
+What You Need to Do Next
+1. Enable 2-Step Verification on your Gmail account (bfairooz1@gmail.com)
+2. Generate a Gmail App Password:
+Go to https://myaccount.google.com/apppasswords
+Create an app password for "Mail"
+Copy the 16-character password (remove spaces)
+3. Add environment variables in Vercel:
+Go to your Vercel dashboard → Project Settings → Environment Variables
+Add GMAIL_USER = bfairooz1@gmail.com
+Add GMAIL_APP_PASSWORD = your 16-character app password (no spaces)
+Enable for Production, Preview, and Development
+4. Redeploy your application on Vercel
+5. Test the forms - Submit both forms and check your email!
