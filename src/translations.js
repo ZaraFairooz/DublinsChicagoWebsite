@@ -179,8 +179,8 @@ export const translations = {
     // Form Submission
     submitMyCase: "Submit My Case for Review",
     freeConfidential: "Free and confidential- no obligation.",
-    thankYouMessage: "Thank you! Your message has been sent to bfairooz1@gmail.com",
-    thankYouCase: "Thank you! Your case has been submitted to bfairooz1@gmail.com. We will contact you within 24 hours.",
+    thankYouMessage: "Thank you! Your message has been sent",
+    thankYouCase: "Thank you! Your case has been submitted. We will contact you within 24 hours.",
     thankYouTitle: "Thank you - An attorney will reach out shortly.",
     thankYouPageMessage: "Thank you! Your case has been submitted. An attorney will reach out to you shortly.",
     
@@ -374,8 +374,8 @@ export const translations = {
     // Form Submission
     submitMyCase: "Enviar mi caso para revisión",
     freeConfidential: "Gratis y confidencial - sin obligación.",
-    thankYouMessage: "¡Gracias! Tu mensaje ha sido enviado a bfairooz1@gmail.com",
-    thankYouCase: "¡Gracias! Tu caso ha sido enviado a bfairooz1@gmail.com. Te contactaremos dentro de 24 horas.",
+    thankYouMessage: "¡Gracias! Tu mensaje ha sido enviado a info@bossfiredme.com",
+    thankYouCase: "¡Gracias! Tu caso ha sido enviado a info@bossfiredme.com. Te contactaremos dentro de 24 horas.",
     thankYouTitle: "Gracias - Un abogado se pondrá en contacto pronto.",
     thankYouPageMessage: "¡Gracias! Tu caso ha sido enviado. Un abogado se pondrá en contacto contigo pronto.",
     
