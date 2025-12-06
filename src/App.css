@@ -12,24 +12,26 @@
 .grid.three {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
+  gap: 30px;
 }
 
 /* Steps layout: center content */
 .steps h2 { text-align: center; }
 .steps h2 { 
-  font-size: 65px; 
-  line-height: 1.15; 
-  font-family: "Playfair Display", "Courier New", monospace; 
+  font-size: 42px; 
+  line-height: 1.4; 
+  font-family: "Playfair Display", Georgia, Cambria, "Times New Roman", Times, serif; 
   transition: opacity 0.3s ease, transform 0.3s ease;
   opacity: 0;
   transform: scale(0.8);
+  margin-top: 0;
+  margin-bottom: 30px;
 }
 .steps .layout { display: flex; flex-direction: column; align-items: center; position: relative; z-index: 1; }
-.steps .left { display: flex; flex-direction: column; gap: 90px; width: 100%; max-width: 1000px; }
-.steps .grid.three { display: flex; flex-direction: column; gap: 60px; }
+.steps .left { display: flex; flex-direction: column; gap: 40px; width: 100%; max-width: 1000px; }
+.steps .grid.three { display: flex; flex-direction: column; gap: 30px; }
 .steps .step { width: 100%; text-align: left; max-width: 600px; }
-.steps .step h3 { font-size: 28px; line-height: 1.2; font-family: "Playfair Display", Georgia, Cambria, "Times New Roman", Times, serif; }
+.steps .step h3 { font-size: 20px; line-height: 1.2; font-family: "Playfair Display", Georgia, Cambria, "Times New Roman", Times, serif; }
 
 /* Alternate card positions */
 .steps .step:nth-child(1) { 
@@ -51,14 +53,14 @@
 
 /* Steps section cards - bigger */
 .steps .card {
-  padding: 32px;
+  padding: 20px;
 }
 
 .steps-cta {
   display: flex;
   justify-content: center;
-  margin-top: 60px;
-  padding-top: 40px;
+  margin-top: 30px;
+  padding-top: 20px;
 }
 
 .steps-cta .btn,
@@ -163,7 +165,7 @@ body {
   font-weight: 700;
   color: rgba(255, 255, 255, 0.85);
   line-height: 1.2;
-  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 .brand-tagline {
   font-size: 12px;
@@ -173,8 +175,8 @@ body {
   letter-spacing: 0.3px;
 }
 .brand-icon {
-  width: 200px;
-  height: 200px;
+  width: 80px;
+  height: 80px;
   object-fit: contain;
   filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.3));
 }
@@ -364,9 +366,10 @@ body {
   box-shadow: 0 0 20px rgba(255, 229, 92, 0.5), 0 0 40px rgba(255, 215, 0, 0.35), 0 0 60px rgba(255, 165, 0, 0.2);
 }
 .hero-header {
-  font-size: clamp(16px, 2vw, 20px);
+  font-size: clamp(14px, 1.8vw, 18px);
   font-weight: 600;
   color: rgba(180, 180, 180, 0.95);
+  margin-top: 0;
   margin-bottom: 16px;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8), -1px -1px 2px rgba(0, 0, 0, 0.8);
   letter-spacing: 0.5px;
@@ -375,7 +378,7 @@ body {
 }
 
 .hero-title {
-  font-size: clamp(36px, 8vw, 72px);
+  font-size: clamp(24px, 5vw, 48px);
   line-height: 1.1;
   font-weight: 800;
   font-family: "Playfair Display", Georgia, Cambria, "Times New Roman", Times, serif;
@@ -388,7 +391,7 @@ body {
 }
 
 .hero-subtitle {
-  font-size: clamp(24px, 4vw, 36px);
+  font-size: clamp(20px, 3.5vw, 30px);
   line-height: 1.2;
   font-weight: 700;
   color: #FFD700;
@@ -399,7 +402,7 @@ body {
 .hero-text {
   color: rgba(255, 255, 255, 0.9);
   margin-bottom: 32px;
-  font-size: clamp(16px, 2vw, 20px);
+  font-size: clamp(14px, 1.8vw, 18px);
   line-height: 1.5;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8), -1px -1px 3px rgba(0, 0, 0, 0.8), 1px -1px 3px rgba(0, 0, 0, 0.8), -1px 1px 3px rgba(0, 0, 0, 0.8);
   max-width: 600px;
@@ -416,7 +419,7 @@ body {
 }
 
 .hero-footer {
-  font-size: clamp(12px, 1.5vw, 14px);
+  font-size: clamp(11px, 1.3vw, 13px);
   color: rgba(255, 255, 255, 0.7);
   margin: 0;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
@@ -425,9 +428,9 @@ body {
 }
 
 .hero-logo {
-  width: 300px;
+  width: 270px;
   height: auto;
-  margin-bottom: 20px;
+  margin-bottom: 3px;
   filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
 }
 
@@ -443,7 +446,7 @@ body {
 .steps { 
   background: linear-gradient(180deg, #0f0f0f 0%, #1a1a1a 50%, #0f0f0f 100%);
   color: #ffffff; 
-  padding: 150px 0;
+  padding: 60px 0 80px 0;
   position: relative;
 }
 .steps::before {
@@ -463,12 +466,12 @@ body {
 }
 .steps p {
   color: rgba(255, 255, 255, 0.9);
-  font-size: 1.1rem;
-  line-height: 1.5;
+  font-size: 0.9rem;
+  line-height: 1.4;
 }
 .steps .step-num { 
-  width: 60px; 
-  height: 50px; 
+  width: 45px; 
+  height: 38px; 
   border-radius: 999px; 
   background: #4a5fc7; 
   color: #ffffff; 
@@ -476,7 +479,8 @@ body {
   align-items: center; 
   justify-content: center; 
   font-weight: 700; 
-  margin-bottom: 20px; 
+  font-size: 18px;
+  margin-bottom: 10px; 
 }
 .step-clickable {
   cursor: pointer;
@@ -682,7 +686,7 @@ a.step-clickable .step-text * {
 .faq { 
   background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
   color: #ffffff; 
-  padding: 150px 0;
+  padding: 60px 0 80px 0;
   position: relative;
 }
 .faq::before {
@@ -696,11 +700,32 @@ a.step-clickable .step-text * {
     radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.03) 0%, transparent 70%);
   pointer-events: none;
 }
+.faq .container {
+  position: relative;
+}
+.faq .container::after {
+  content: '';
+  position: absolute;
+  bottom: -80px;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(255, 215, 0, 0.4) 15%, 
+    rgba(255, 215, 0, 0.8) 50%, 
+    rgba(255, 215, 0, 0.4) 85%, 
+    transparent 100%
+  );
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.4);
+  z-index: 2;
+}
 .faq h2 {
   text-align: center;
   font-size: clamp(32px, 6vw, 48px);
   line-height: 1.3;
   font-family: "Playfair Display", Georgia, Cambria, "Times New Roman", Times, serif;
+  margin-top: 0;
   margin-bottom: 40px;
   position: relative;
   z-index: 1;
@@ -753,7 +778,9 @@ a.step-clickable .step-text * {
 .faq-confidentiality {
   text-align: center;
   margin-top: 40px;
+  margin-bottom: 0;
   padding-top: 30px;
+  padding-bottom: 0;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   position: relative;
   z-index: 1;
@@ -763,6 +790,155 @@ a.step-clickable .step-text * {
   color: rgba(255, 255, 255, 0.7);
   font-size: 14px;
   margin: 0;
+}
+
+/* Contact Section */
+.contact-section {
+  background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+  color: #ffffff;
+  padding: 60px 0;
+  text-align: center;
+  position: relative;
+}
+
+.contact-section h2 {
+  font-size: clamp(32px, 5vw, 42px);
+  line-height: 1.4;
+  font-family: "Playfair Display", Georgia, Cambria, "Times New Roman", Times, serif;
+  margin: 0 0 16px;
+  color: #ffffff;
+}
+
+.contact-section-text {
+  font-size: clamp(14px, 1.8vw, 18px);
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0 0 32px;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.contact-section-links {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.contact-section-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  font-size: clamp(14px, 1.8vw, 16px);
+  transition: color 0.2s ease, transform 0.2s ease;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.contact-section-link:hover {
+  color: #FFD700;
+  transform: translateY(-2px);
+}
+
+.contact-section-link svg {
+  flex-shrink: 0;
+  color: #FFD700;
+}
+
+.contact-section-btn {
+  font-size: 1rem;
+  padding: 14px 32px;
+  min-height: 50px;
+  margin-top: 24px;
+}
+
+.contact-section-form {
+  max-width: 700px;
+  margin: 32px auto 0;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.contact-section-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.contact-section-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.contact-section-form-field label {
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 0.95rem;
+  margin-bottom: 4px;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.contact-section-form-field .required {
+  color: #ff6b6b;
+  margin-left: 4px;
+}
+
+.contact-section-form-field input,
+.contact-section-form-field select,
+.contact-section-form-field textarea {
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.contact-section-form-field input::placeholder,
+.contact-section-form-field textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.contact-section-form-field input:focus,
+.contact-section-form-field select:focus,
+.contact-section-form-field textarea:focus {
+  outline: none;
+  border-color: #FFD700;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.contact-section-form-field select {
+  cursor: pointer;
+}
+
+.contact-section-form-field textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.contact-section-form-field .error-message {
+  display: block;
+  color: #ff6b6b;
+  font-size: 0.85rem;
+  margin-top: 4px;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.contact-section-form-disclaimer {
+  text-align: center;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 16px;
+  margin-bottom: 0;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 .gradient-text {
@@ -912,7 +1088,7 @@ a.step-clickable .step-text * {
 
 .faq-question {
   flex: 1;
-  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: "Playfair Display", Georgia, Cambria, "Times New Roman", Times, serif;
 }
 
 .faq-icon {
@@ -1030,6 +1206,17 @@ a.step-clickable .step-text * {
   transform: translateY(-1px) scale(1.04);
   background: linear-gradient(135deg, #FFE55C 0%, #FFD700 50%, #FFA500 100%) !important;
 }
+.footer-content-container {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 40px;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
 .footer-content {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -1037,7 +1224,6 @@ a.step-clickable .step-text * {
   align-items: start;
   position: relative;
   z-index: 1;
-  margin-bottom: 40px;
 }
 .footer-section {
   display: flex;
@@ -1054,7 +1240,7 @@ a.step-clickable .step-text * {
   font-weight: 600;
   margin: 0 0 12px 0;
   text-align: left;
-  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: "Playfair Display", Georgia, Cambria, "Times New Roman", Times, serif;
 }
 .footer-section .brand {
   font-weight: 800;
@@ -1331,7 +1517,7 @@ a.btn.btn-accent:not(.hero .btn.btn-accent) {
   color: #ffffff; 
   font-size: 1.1rem;
   margin-bottom: 0.5rem;
-  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 .form-field .required {
   color: #ff6b6b;
@@ -1411,7 +1597,7 @@ a.btn.btn-accent:not(.hero .btn.btn-accent) {
 .services { 
   background: linear-gradient(180deg, #0f0f0f 0%, #1a1a1a 50%, #0f0f0f 100%);
   color: #ffffff; 
-  padding: 150px 0;
+  padding: 60px 0 80px 0;
   position: relative;
 }
 .services::before {
@@ -1425,10 +1611,65 @@ a.btn.btn-accent:not(.hero .btn.btn-accent) {
     radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.05) 0%, transparent 70%);
   pointer-events: none;
 }
+.services::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(255, 215, 0, 0.4) 15%, 
+    rgba(255, 215, 0, 0.8) 50%, 
+    rgba(255, 215, 0, 0.4) 85%, 
+    transparent 100%
+  );
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.4);
+  z-index: 2;
+}
+.services .container {
+  position: relative;
+}
+.services .container::after {
+  content: '';
+  position: absolute;
+  bottom: -80px;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(255, 215, 0, 0.4) 15%, 
+    rgba(255, 215, 0, 0.8) 50%, 
+    rgba(255, 215, 0, 0.4) 85%, 
+    transparent 100%
+  );
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.4);
+  z-index: 2;
+}
+.services::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(255, 215, 0, 0.4) 15%, 
+    rgba(255, 215, 0, 0.8) 50%, 
+    rgba(255, 215, 0, 0.4) 85%, 
+    transparent 100%
+  );
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.4);
+  z-index: 2;
+}
 .services h2 { 
   color: #ffffff; 
   text-align: center; 
-  margin-bottom: 80px; 
+  margin-top: 0;
+  margin-bottom: 40px; 
   position: relative; 
   z-index: 1; 
   transition: opacity 0.3s ease, transform 0.3s ease;
@@ -1444,15 +1685,17 @@ a.btn.btn-accent:not(.hero .btn.btn-accent) {
 }
 .services .card.service p {
   font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.4;
 }
 .services .card.service h3 { 
   color: #000080; 
-  font-size: 1.5rem; 
+  font-size: 1.25rem; 
   font-weight: 700; 
-  margin-bottom: 0.75rem;
-  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  margin-bottom: 0.5rem;
+  font-family: "Playfair Display", Georgia, Cambria, "Times New Roman", Times, serif;
 }
-.services h2 { font-size: 50px; line-height: 2; font-family: "Playfair Display", Georgia, Cambria, "Times New Roman", Times, serif; }
+.services h2 { font-size: 42px; line-height: 1.4; font-family: "Playfair Display", Georgia, Cambria, "Times New Roman", Times, serif; }
 
 /* Service card animations */
 .animate-service-card {
@@ -1519,8 +1762,8 @@ a.btn.btn-accent:not(.hero .btn.btn-accent) {
   }
   
   .brand-icon {
-    width: 140px;
-    height: 140px;
+    width: 70px;
+    height: 70px;
   }
 }
 
@@ -1534,8 +1777,8 @@ a.btn.btn-accent:not(.hero .btn.btn-accent) {
   }
   
   .brand-icon {
-    width: 120px;
-    height: 120px;
+    width: 60px;
+    height: 60px;
   }
   
   .steps .layout { grid-template-columns: 1fr; }
@@ -1571,8 +1814,8 @@ a.btn.btn-accent:not(.hero .btn.btn-accent) {
   }
   
   .brand-icon {
-    width: 100px;
-    height: 100px;
+    width: 50px;
+    height: 50px;
   }
   
   .mobile-nav {
@@ -1620,7 +1863,31 @@ a.btn.btn-accent:not(.hero .btn.btn-accent) {
     padding-left: 0;
   }
   
+  /* Mobile Contact Section */
+  .contact-section {
+    padding: 50px 0;
+  }
+  
+  .contact-section-links {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+  
+  .contact-section-form {
+    padding: 24px 20px;
+  }
+  
+  .contact-section-form-row {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
   /* Mobile Footer */
+  .footer-content-container {
+    padding: 30px 20px;
+  }
+  
   .footer-content {
     grid-template-columns: 1fr;
     gap: 40px;

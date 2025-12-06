@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useLanguage } from '../LanguageContext.jsx'
 import './PrivacyPolicy.css'
@@ -7,6 +8,10 @@ export default function PrivacyPolicy() {
   const currentDate = new Date()
   const effectiveDate = "January 1, 2025"
   const lastUpdated = currentDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }, [])
 
   return (
     <div className="legal-page">

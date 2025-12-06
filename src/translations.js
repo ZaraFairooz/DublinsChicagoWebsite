@@ -13,7 +13,7 @@ export const translations = {
     heroHeader: "Fired Unfairly? You Still Have Rights.",
     heroTitle: "We Help Wrongfully Terminated Employees Get Justice.",
     heroSubtitle: "No Fees, Unless You Win.",
-    heroText: "We connect you with experienced employment attorneys- 100% free consultation.",
+    heroText: "We connect you with experienced employment attorneys 100% free consultation.",
     startYourCase: "Check if You Have a Case",
     heroFooter: "Fast • Confidential • No Obligation",
     
@@ -101,7 +101,7 @@ export const translations = {
     tiktok: "TikTok",
     
     // Contact Form
-    contactUs: "Contact us",
+    contactUs: "Contact Us",
     contactSubtext: "It's free, confidential, and only takes a minute.",
     fullName: "Full name",
     email: "Email",
@@ -179,7 +179,7 @@ export const translations = {
     // Form Submission
     submitMyCase: "Submit My Case for Review",
     freeConfidential: "Free and confidential- no obligation.",
-    thankYouMessage: "Thank you! Your message has been sent.",
+    thankYouMessage: "Thank you! Your message has been sent to bfairooz1@gmail.com",
     thankYouCase: "Thank you! Your case has been submitted to bfairooz1@gmail.com. We will contact you within 24 hours.",
     thankYouTitle: "Thank you - An attorney will reach out shortly.",
     thankYouPageMessage: "Thank you! Your case has been submitted. An attorney will reach out to you shortly.",

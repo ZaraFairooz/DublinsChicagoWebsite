@@ -1,9 +1,13 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useLanguage } from '../LanguageContext.jsx'
 import { sendEmailFormspree } from '../services/emailService.js'
 
 export default function Contact() {
   const { t } = useLanguage();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }, [])
   const [formData, setFormData] = useState({
     name: '',
     email: '',

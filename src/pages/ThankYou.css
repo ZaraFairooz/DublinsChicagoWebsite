@@ -1,5 +1,5 @@
 .thank-you-page {
-  min-height: 100vh;
+  min-height: calc(100vh - 145px - 200px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -7,7 +7,10 @@
     radial-gradient(circle at 20% 80%, rgba(255, 215, 0, 0.3) 0%, transparent 50%),
     radial-gradient(circle at 80% 20%, rgba(255, 165, 0, 0.2) 0%, transparent 50%),
     linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 25%, #1f1f1f 50%, #2a2a2a 75%, #1a1a1a 100%);
-  padding: 40px 20px;
+  padding: 60px 20px;
+  margin-top: 0;
+  margin-bottom: 0;
+  position: relative;
 }
 
 .thank-you-container {
@@ -57,9 +60,63 @@
 
 .thank-you-content .btn {
   min-width: 200px;
+  margin-bottom: 50px;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  line-height: 1.2 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  background: linear-gradient(135deg, #FFE55C 0%, #FFD700 50%, #FFA500 100%) !important;
+  color: #000000 !important;
+  border-color: #FFD700 !important;
+  box-shadow: 0 0 15px rgba(255, 229, 92, 0.4), 0 0 30px rgba(255, 215, 0, 0.25), 0 0 45px rgba(255, 165, 0, 0.15) !important;
 }
 
-@media (max-width: 640px) {
+.thank-you-content .btn:hover {
+  background: linear-gradient(135deg, #FFE55C 0%, #FFD700 50%, #FFA500 100%) !important;
+  color: #000000 !important;
+  box-shadow: 0 0 20px rgba(255, 229, 92, 0.5), 0 0 40px rgba(255, 215, 0, 0.35), 0 0 60px rgba(255, 165, 0, 0.2) !important;
+  transform: translateY(-1px) scale(1.04);
+}
+
+.thank-you-button {
+  opacity: 0;
+  transform: scale(0.8) translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.thank-you-button.pop-up {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  animation: popUpButton 0.6s ease-out;
+}
+
+@keyframes popUpButton {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
+  }
+  50% {
+    transform: scale(1.05) translateY(-5px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@media (max-width: 1100px) {
+  .thank-you-page {
+    min-height: calc(100vh - 120px - 200px);
+  }
+}
+
+@media (max-width: 768px) {
+  .thank-you-page {
+    min-height: calc(100vh - 100px - 200px);
+  }
+  
   .thank-you-content {
     padding: 40px 24px;
   }

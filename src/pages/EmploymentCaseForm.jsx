@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useLanguage } from '../LanguageContext.jsx'
 import { sendEmploymentCaseFormspree } from '../services/emailService.js'
@@ -7,6 +7,10 @@ import './EmploymentCaseForm.css'
 export default function EmploymentCaseForm() {
   const { t } = useLanguage();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }, [])
   const [formData, setFormData] = useState({
     // Step 1 - Contact Info
     fullName: '',
