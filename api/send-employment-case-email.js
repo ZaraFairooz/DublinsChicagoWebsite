@@ -127,7 +127,7 @@ ${formatField('How Did You Hear About Us', formData.howDidYouHear)}
 
     // Email content
     const mailOptions = {
-      from: process.env.GMAIL_USER,
+      from: 'info@bossfiredme.com',
       to: 'info@bossfiredme.com',
       replyTo: formData.emailAddress,
       subject: `Employment Case Submission - ${formData.fullName}`,

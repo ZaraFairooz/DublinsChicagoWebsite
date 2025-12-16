@@ -73,7 +73,7 @@
   background: linear-gradient(135deg, #FFE55C 0%, #FFD700 50%, #FFA500 100%) !important;
   color: #000000 !important;
   border-color: #FFD700 !important;
-  box-shadow: 0 0 15px rgba(255, 229, 92, 0.4), 0 0 30px rgba(255, 215, 0, 0.25), 0 0 45px rgba(255, 165, 0, 0.15) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15), 0 4px 12px rgba(0, 0, 0, 0.1) !important;
   font-weight: 700;
   transition: all 0.3s ease;
 }
@@ -82,7 +82,7 @@
 .steps-cta .btn.btn-primary:hover,
 .steps-cta a.btn.btn-primary:hover {
   color: #000000 !important;
-  box-shadow: 0 0 20px rgba(255, 229, 92, 0.5), 0 0 40px rgba(255, 215, 0, 0.35), 0 0 60px rgba(255, 165, 0, 0.2) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2), 0 6px 16px rgba(0, 0, 0, 0.15) !important;
   transform: translateY(-1px) scale(1.04);
   background: linear-gradient(135deg, #FFE55C 0%, #FFD700 50%, #FFA500 100%) !important;
 }
@@ -347,7 +347,7 @@ body {
   background: linear-gradient(135deg, #FFE55C 0%, #FFD700 50%, #FFA500 100%) !important;
   color: #000000 !important;
   border-color: #FFD700 !important;
-  box-shadow: 0 0 15px rgba(255, 229, 92, 0.4), 0 0 30px rgba(255, 215, 0, 0.25), 0 0 45px rgba(255, 165, 0, 0.15) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15), 0 4px 12px rgba(0, 0, 0, 0.1) !important;
   backdrop-filter: saturate(120%) blur(2px);
   height: 64px;
   padding: 0 36px;
@@ -363,7 +363,7 @@ body {
 .hero .btn-accent:hover,
 .hero a.btn-accent:hover {
   transform: scale(1.06);
-  box-shadow: 0 0 20px rgba(255, 229, 92, 0.5), 0 0 40px rgba(255, 215, 0, 0.35), 0 0 60px rgba(255, 165, 0, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2), 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 .hero-header {
   font-size: clamp(14px, 1.8vw, 18px);
@@ -1195,14 +1195,14 @@ a.step-clickable .step-text * {
   background: linear-gradient(135deg, #FFE55C 0%, #FFD700 50%, #FFA500 100%) !important;
   color: #000000 !important;
   border-color: #FFD700 !important;
-  box-shadow: 0 0 15px rgba(255, 229, 92, 0.4), 0 0 30px rgba(255, 215, 0, 0.25), 0 0 45px rgba(255, 165, 0, 0.15) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15), 0 4px 12px rgba(0, 0, 0, 0.1) !important;
   font-weight: 700;
   transition: all 0.3s ease;
 }
 
 .footer-cta-btn:hover {
   color: #000000 !important;
-  box-shadow: 0 0 20px rgba(255, 229, 92, 0.5), 0 0 40px rgba(255, 215, 0, 0.35), 0 0 60px rgba(255, 165, 0, 0.2) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2), 0 6px 16px rgba(0, 0, 0, 0.15) !important;
   transform: translateY(-1px) scale(1.04);
   background: linear-gradient(135deg, #FFE55C 0%, #FFD700 50%, #FFA500 100%) !important;
 }
@@ -1415,14 +1415,14 @@ a.step-clickable .step-text * {
   background: linear-gradient(135deg, #FFE55C 0%, #FFD700 50%, #FFA500 100%) !important;
   color: #000000 !important;
   border-color: #FFD700 !important;
-  box-shadow: 0 0 15px rgba(255, 229, 92, 0.4), 0 0 30px rgba(255, 215, 0, 0.25), 0 0 45px rgba(255, 165, 0, 0.15) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15), 0 4px 12px rgba(0, 0, 0, 0.1) !important;
   font-weight: 700;
   transition: all 150ms ease;
 }
 
 .nav .btn.btn-primary:hover {
   color: #000000 !important;
-  box-shadow: 0 0 20px rgba(255, 229, 92, 0.5), 0 0 40px rgba(255, 215, 0, 0.35), 0 0 60px rgba(255, 165, 0, 0.2) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2), 0 6px 16px rgba(0, 0, 0, 0.15) !important;
   transform: translateY(-1px) scale(1.04);
 }
 
@@ -1950,6 +1950,11 @@ a.btn.btn-accent:not(.hero .btn.btn-accent) {
   background: #3a3aed !important;
   color: #ffffff !important;
   border-color: #3a3aed !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  line-height: 1 !important;
+  vertical-align: middle !important;
 }
 
 .modal .btn.btn-primary:hover,
@@ -1967,8 +1972,12 @@ section.hero a.btn.btn-accent {
   background: linear-gradient(135deg, #FFE55C 0%, #FFD700 50%, #FFA500 100%) !important;
   color: #000000 !important;
   border-color: #FFD700 !important;
-  box-shadow: 0 0 15px rgba(255, 229, 92, 0.4), 0 0 30px rgba(255, 215, 0, 0.25), 0 0 45px rgba(255, 165, 0, 0.15) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15), 0 4px 12px rgba(0, 0, 0, 0.1) !important;
   font-weight: 700 !important;
+}
+
+section.hero a.btn.btn-accent:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2), 0 6px 16px rgba(0, 0, 0, 0.15) !important;
 }
 
 /* Alternative simple golden button */
@@ -1995,6 +2004,11 @@ section.hero a.btn.btn-accent {
   color: #ffffff !important;
   border-color: #3a3aed !important;
   box-shadow: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  line-height: 1 !important;
+  vertical-align: middle !important;
 }
 
 .modal-overlay .modal .modal-actions a.btn.btn-primary:hover {

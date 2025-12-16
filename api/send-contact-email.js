@@ -35,7 +35,7 @@ export default async function handler(req, res) {
 
     // Email content
     const mailOptions = {
-      from: process.env.GMAIL_USER,
+      from: 'info@bossfiredme.com',
       to: 'info@bossfiredme.com',
       replyTo: email,
       subject: `Contact Form: ${subject || 'General Inquiry'}`,

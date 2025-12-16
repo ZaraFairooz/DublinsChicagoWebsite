@@ -883,6 +883,8 @@ export function Footer() {
           <Link to="/privacy">{t('privacyPolicy')}</Link>
           <span className="footer-nav-separator">|</span>
           <Link to="/terms">{t('termsOfUse')}</Link>
+          <span className="footer-nav-separator">|</span>
+          <Link to="/data-opt-out">Data Opt Out</Link>
         </div>
         
         <div className="footer-disclaimer">
