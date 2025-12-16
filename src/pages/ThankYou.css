@@ -71,6 +71,8 @@
   color: #000000 !important;
   border-color: #FFD700 !important;
   box-shadow: 0 0 15px rgba(255, 229, 92, 0.4), 0 0 30px rgba(255, 215, 0, 0.25), 0 0 45px rgba(255, 165, 0, 0.15) !important;
+  font-weight: 600 !important;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
 }
 
 .thank-you-content .btn:hover {
