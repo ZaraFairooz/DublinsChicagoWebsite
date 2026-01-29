@@ -35,11 +35,11 @@ function EngagementModalContent({ onClose }) {
     <div className="modal-overlay" role="dialog" aria-modal="true">
       <div className="modal">
         <div className="modal-body">
-          <h3>Do you have a situation our lawyers can help with?</h3>
+          <h3>Ready to visit Dublin's Bar & Grill?</h3>
         </div>
         <div className="modal-actions">
           <button className="btn" onClick={onClose}>{t('no')}</button>
-          <Link className="btn btn-primary" to="/employment-case-form" onClick={onClose}>{t('yes')}</Link>
+          <a className="btn btn-primary" href="tel:+13122666340" onClick={onClose}>Call Us</a>
         </div>
       </div>
     </div>

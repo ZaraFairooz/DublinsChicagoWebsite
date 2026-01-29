@@ -68,11 +68,6 @@ export default function Contact() {
       newErrors.phone = 'Phone number must be 15 digits or less'
     }
     
-    // Validate subject
-    if (!formData.subject.trim()) {
-      newErrors.subject = 'Please select an issue'
-    }
-    
     // Validate message
     if (!formData.message.trim()) {
       newErrors.message = 'Message is required'
@@ -167,23 +162,15 @@ export default function Contact() {
               {errors.phone && <span className="error-message">{errors.phone}</span>}
             </div>
             <div className="form-field">
-              <label htmlFor="subject">{t('selectIssue')} <span className="required">*</span></label>
-              <select 
+              <label htmlFor="subject">{t('subject')}</label>
+              <input 
                 id="subject" 
                 name="subject" 
+                type="text"
+                placeholder={t('subjectPlaceholder')} 
                 value={formData.subject}
                 onChange={handleInputChange}
-                required
-              >
-                <option value="">{t('selectIssue')}</option>
-                <option value={t('wrongfulTermination')}>{t('wrongfulTermination')}</option>
-                <option value={t('discrimination')}>{t('discrimination')}</option>
-                <option value={t('retaliation')}>{t('retaliation')}</option>
-                <option value={t('harassment')}>{t('harassment')}</option>
-                <option value={t('wageHour')}>{t('wageHour')}</option>
-                <option value={t('other')}>{t('other')}</option>
-              </select>
-              {errors.subject && <span className="error-message">{errors.subject}</span>}
+              />
             </div>
           </div>
           <div className="form-field">
@@ -192,14 +179,14 @@ export default function Contact() {
               id="message" 
               name="message" 
               rows={6} 
-              placeholder={t('describeWhatHappened')} 
+              placeholder={t('messagePlaceholder')} 
               value={formData.message}
               onChange={handleInputChange}
               required
             />
             {errors.message && <span className="error-message">{errors.message}</span>}
           </div>
-          <button type="submit" className="btn btn-primary btn-lg">{t('getFreeCaseReview')}</button>
+          <button type="submit" className="btn btn-primary btn-lg">{t('send')}</button>
           <p className="form-disclaimer">{t('formDisclaimer')}</p>
         </form>
       </div>

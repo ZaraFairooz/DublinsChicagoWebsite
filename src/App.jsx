@@ -52,7 +52,7 @@ export function Header() {
       <div className="container header-inner">
         <div className="brand-container">
           <Link to="/" className="brand">
-            <img src="/Pics/3.png" alt="Boss Fired Me Logo" className="brand-icon" />
+            <img src="/Pics/dublinslogo.webp" alt="Dublin's Bar & Grill Logo" className="brand-icon" />
             <div className="brand-text">
               <span className="brand-name">{t('brand')}</span>
               <span className="brand-tagline">{t('tagline')}</span>
@@ -62,11 +62,11 @@ export function Header() {
         
         {/* Desktop Navigation */}
         <nav className="nav desktop-nav">
-          <Link to="/#how-it-works">{t('howItWorks')}</Link>
-          <Link to="/#services">{t('services')}</Link>
-          <Link to="/#faq">{t('faq')}</Link>
+          <Link to="/#menu">{t('menu')}</Link>
+          <Link to="/#about">{t('about')}</Link>
+          <Link to="/#hours">{t('hours')}</Link>
           <Link to="/contact">{t('contact')}</Link>
-          <Link className="btn btn-primary" to="/employment-case-form">{t('getStarted')}</Link>
+          <a className="btn btn-primary" href="tel:+13122666340">{t('callNow')}</a>
           
           {/* Language Switcher */}
           <div className="language-switcher">
@@ -103,11 +103,11 @@ export function Header() {
 
         {/* Mobile Navigation */}
         <nav className={`nav mobile-nav ${isMobileMenuOpen ? 'open' : ''}`}>
-          <Link to="/#how-it-works" onClick={closeMobileMenu}>{t('howItWorks')}</Link>
-          <Link to="/#services" onClick={closeMobileMenu}>{t('services')}</Link>
-          <Link to="/#faq" onClick={closeMobileMenu}>{t('faq')}</Link>
+          <Link to="/#menu" onClick={closeMobileMenu}>{t('menu')}</Link>
+          <Link to="/#about" onClick={closeMobileMenu}>{t('about')}</Link>
+          <Link to="/#hours" onClick={closeMobileMenu}>{t('hours')}</Link>
           <Link to="/contact" onClick={closeMobileMenu}>{t('contact')}</Link>
-          <Link className="btn btn-primary" to="/employment-case-form" onClick={closeMobileMenu}>{t('getStarted')}</Link>
+          <a className="btn btn-primary" href="tel:+13122666340" onClick={closeMobileMenu}>{t('callNow')}</a>
           
           {/* Mobile Language Switcher */}
           <div className="mobile-language-switcher">
@@ -132,21 +132,44 @@ export function Header() {
 
 function Hero() {
   const { t } = useLanguage();
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  
+  const backgroundImages = [
+    '/Pics/dublinsfrontstore.png',
+    '/Pics/dublinsfoodAI1.png',
+    '/Pics/dublinsAIImg.png',
+    '/Pics/dublinsAIImg2.png',
+    '/Pics/dublinsAIImg3.png'
+  ];
+  
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % backgroundImages.length);
+    }, 3000); // Change image every 3 seconds
+    
+    return () => clearInterval(interval);
+  }, [backgroundImages.length]);
   
   return (
     <section className="hero">
-      <video className="hero-video" autoPlay muted loop playsInline>
-        <source src="/Pics/vid2.mp4" type="video/mp4" />
-      </video>
+      {backgroundImages.map((image, index) => (
+        <img 
+          key={image}
+          className={`hero-background ${index === currentImageIndex ? 'active' : ''}`}
+          src={image} 
+          alt="Dublin's Bar & Grill" 
+        />
+      ))}
       <div className="hero-overlay"></div>
       <div className="container hero-inner">
-        <img src="/Pics/3.png" alt="Boss Fired Me Logo" className="hero-logo" />
+        <img src="/Pics/dublinslogo.webp" alt="Dublin's Bar & Grill Logo" className="hero-logo" />
         <p className="hero-header">{t('heroHeader')}</p>
         <h1 className="hero-title">{t('heroTitle')}</h1>
         <p className="hero-subtitle">{t('heroSubtitle')}</p>
         <p className="hero-text">{t('heroText')}</p>
         <div className="hero-button-container">
-          <Link className="btn btn-accent" to="/employment-case-form">{t('startYourCase')}</Link>
+          <a className="btn btn-accent" href="#menu">{t('viewMenu')}</a>
+          <a className="btn btn-primary" href="tel:+13122666340" style={{marginLeft: '12px'}}>{t('callNow')}</a>
           <p className="hero-footer">{t('heroFooter')}</p>
         </div>
       </div>
@@ -259,79 +282,48 @@ function Steps() {
   }, []);
 
   return (
-    <section id="how-it-works" className="section steps">
+    <section id="about" className="section steps">
       <div className="container">
         <div className="layout">
           <div className="left">
-            <h2 ref={titleRef}>{t('threeEasySteps')}</h2>
+            <h2 ref={titleRef}>{t('whyChooseDublins')}</h2>
             <div className="grid three">
-              <Link 
-                to="/employment-case-form"
+              <div 
                 ref={(el) => stepRefs.current[0] = el}
-                className="card step animate-card step-clickable"
+                className="card step animate-card"
               >
-                <div className="step-num">1</div>
+                <div className="step-num">🍺</div>
                 <div className="step-content">
                   <div className="step-text">
-                    <h3>{t('step1Title')}</h3>
-                    <p>{t('step1Description')}</p>
-                  </div>
-                  <div className="step-image">
-                    <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                      <polyline points="14 2 14 8 20 8"></polyline>
-                      <line x1="16" y1="13" x2="8" y2="13"></line>
-                      <line x1="16" y1="17" x2="8" y2="17"></line>
-                      <polyline points="10 9 9 9 8 9"></polyline>
-                    </svg>
+                    <h3>{t('authenticIrish')}</h3>
+                    <p>{t('authenticIrishDesc')}</p>
                   </div>
                 </div>
-              </Link>
-              <Link 
-                to="/employment-case-form"
+              </div>
+              <div 
                 ref={(el) => stepRefs.current[1] = el}
-                className="card step animate-card step-clickable"
+                className="card step animate-card"
               >
-                <div className="step-num">2</div>
+                <div className="step-num">🌅</div>
                 <div className="step-content">
-                  <div className="step-image">
-                    <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                      <circle cx="9" cy="7" r="4"></circle>
-                      <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                      <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                    </svg>
-                  </div>
                   <div className="step-text">
-                    <h3>{t('step2Title')}</h3>
-                    <p>{t('step2Description')}</p>
+                    <h3>{t('breakfastAllDay')}</h3>
+                    <p>{t('breakfastAllDayDesc')}</p>
                   </div>
                 </div>
-              </Link>
-              <Link 
-                to="/employment-case-form"
+              </div>
+              <div 
                 ref={(el) => stepRefs.current[2] = el}
-                className="card step animate-card step-clickable"
+                className="card step animate-card"
               >
-                <div className="step-num">3</div>
+                <div className="step-num">365</div>
                 <div className="step-content">
                   <div className="step-text">
-                    <h3>{t('step3Title')}</h3>
-                    <p>{t('step3Description')}</p>
-                  </div>
-                  <div className="step-image">
-                    <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                      <path d="M9 12l2 2 4-4"></path>
-                    </svg>
+                    <h3>{t('openEveryDay')}</h3>
+                    <p>{t('openEveryDayDesc')}</p>
                   </div>
                 </div>
-              </Link>
-            </div>
-            <div className="steps-cta">
-              <Link className="btn btn-primary btn-lg" to="/employment-case-form">
-                {t('startFreeCaseReview')}
-              </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -433,51 +425,51 @@ function Services() {
   }, []);
 
   return (
-    <section id="services" className="section services">
+    <section id="menu" className="section services">
       <div className="container">
-        <h2 ref={titleRef}>{t('servicesTitle')}</h2>
+        <h2 ref={titleRef}>{t('menuTitle')}</h2>
         <div className="grid three">
           <div 
             ref={(el) => serviceRefs.current[0] = el}
             className="card service animate-service-card"
           >
-            <h3>{t('wrongfulTermination')}</h3>
-            <p>{t('wrongfulTerminationDesc')}</p>
+            <h3>{t('irishSpecialties')}</h3>
+            <p>{t('irishSpecialtiesDesc')}</p>
           </div>
           <div 
             ref={(el) => serviceRefs.current[1] = el}
             className="card service animate-service-card"
           >
-            <h3>{t('discrimination')}</h3>
-            <p>{t('discriminationDesc')}</p>
+            <h3>{t('breakfast')}</h3>
+            <p>{t('breakfastDesc')}</p>
           </div>
           <div 
             ref={(el) => serviceRefs.current[2] = el}
             className="card service animate-service-card"
           >
-            <h3>{t('harassment')}</h3>
-            <p>{t('harassmentDesc')}</p>
+            <h3>{t('sandwiches')}</h3>
+            <p>{t('sandwichesDesc')}</p>
           </div>
           <div 
             ref={(el) => serviceRefs.current[3] = el}
             className="card service animate-service-card"
           >
-            <h3>{t('retaliation')}</h3>
-            <p>{t('retaliationDesc')}</p>
+            <h3>{t('appetizers')}</h3>
+            <p>{t('appetizersDesc')}</p>
           </div>
           <div 
             ref={(el) => serviceRefs.current[4] = el}
             className="card service animate-service-card"
           >
-            <h3>{t('wageHour')}</h3>
-            <p>{t('wageHourDesc')}</p>
+            <h3>{t('entrees')}</h3>
+            <p>{t('entreesDesc')}</p>
           </div>
           <div 
             ref={(el) => serviceRefs.current[5] = el}
             className="card service animate-service-card"
           >
-            <h3>{t('familyMedicalLeave')}</h3>
-            <p>{t('familyMedicalLeaveDesc')}</p>
+            <h3>{t('cocktails')}</h3>
+            <p>{t('cocktailsDesc')}</p>
           </div>
         </div>
       </div>
@@ -554,22 +546,9 @@ function FAQ() {
   const displayedFaqs = showAll ? faqs : initialFaqs;
 
   return (
-    <section id="faq" className="section faq">
+    <section id="hours" className="section faq">
       <div className="container">
         <h2 ref={titleRef}>{t('frequentlyAskedQuestions')}</h2>
-        
-        {/* Trust Badges */}
-        <div className="faq-trust-badges">
-          <div className="trust-badge">
-            <span className="stars">⭐⭐⭐⭐⭐</span>
-            <span>{t('trustedBy')}</span>
-          </div>
-          <div className="trust-badges-row">
-            <div className="trust-badge-small">{t('licensedAttorney')}</div>
-            <div className="trust-badge-small">{t('secureConfidential')}</div>
-            <div className="trust-badge-small">{t('noHiddenFees')}</div>
-          </div>
-        </div>
 
         <div className="faq-content">
           {displayedFaqs.map((faq, index) => (
@@ -590,11 +569,6 @@ function FAQ() {
               {showAll ? t('seeLessFaqs') : t('seeMoreFaqs')}
             </button>
           )}
-        </div>
-
-        {/* Confidentiality Statement */}
-        <div className="faq-confidentiality">
-          <p>{t('confidentialityStatement')}</p>
         </div>
       </div>
     </section>
@@ -653,10 +627,6 @@ function ContactSection() {
       newErrors.phone = 'Phone number is required';
     } else if (formData.phone.length < 10) {
       newErrors.phone = 'Phone number must be at least 10 digits';
-    }
-    
-    if (!formData.subject.trim()) {
-      newErrors.subject = 'Please select an issue';
     }
     
     if (!formData.message.trim()) {
@@ -750,23 +720,15 @@ function ContactSection() {
               {errors.phone && <span className="error-message">{errors.phone}</span>}
             </div>
             <div className="contact-section-form-field">
-              <label htmlFor="contact-subject">{t('selectIssue')} <span className="required">*</span></label>
-              <select 
+              <label htmlFor="contact-subject">{t('subject')}</label>
+              <input 
                 id="contact-subject"
                 name="subject" 
+                type="text"
+                placeholder={t('subjectPlaceholder')} 
                 value={formData.subject}
                 onChange={handleInputChange}
-                required
-              >
-                <option value="">{t('selectIssue')}</option>
-                <option value={t('wrongfulTermination')}>{t('wrongfulTermination')}</option>
-                <option value={t('discrimination')}>{t('discrimination')}</option>
-                <option value={t('retaliation')}>{t('retaliation')}</option>
-                <option value={t('harassment')}>{t('harassment')}</option>
-                <option value={t('wageHour')}>{t('wageHour')}</option>
-                <option value={t('other')}>{t('other')}</option>
-              </select>
-              {errors.subject && <span className="error-message">{errors.subject}</span>}
+              />
             </div>
           </div>
           <div className="contact-section-form-field">
@@ -775,7 +737,7 @@ function ContactSection() {
               id="contact-message"
               name="message" 
               rows={4} 
-              placeholder={t('describeWhatHappened')} 
+              placeholder={t('messagePlaceholder')} 
               value={formData.message}
               onChange={handleInputChange}
               required
@@ -808,47 +770,36 @@ export function Footer() {
       <div className="container">
         <div className="footer-cta">
           <p className="footer-next-step">{t('footerNextStep')}</p>
-          <Link to="/employment-case-form" className="btn btn-primary btn-lg footer-cta-btn">
-            {t('getStarted')}
-          </Link>
+          <a href="tel:+13122666340" className="btn btn-primary btn-lg footer-cta-btn">
+            {t('callNow')}
+          </a>
         </div>
         
         <div className="footer-content-container">
         <div className="footer-content">
           <div className="footer-section">
-            <img src="/Pics/3.png" alt="Boss Fired Me Logo" className="footer-logo" />
+            <img src="/Pics/dublinslogo.webp" alt="Dublin's Bar & Grill Logo" className="footer-logo" />
             <div className="brand">{t('footerBrand')}</div>
+            <p className="muted">1050 North State Street<br />Chicago, Illinois 60611</p>
           </div>
           
           <div className="footer-section">
             <h3>{t('footerContact')}</h3>
             <div className="contact-buttons">
-              <a href="mailto:info@bossfiredme.com" className="contact-btn">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                  <polyline points="22,6 12,13 2,6"/>
-                </svg>
-                info@bossfiredme.com
-              </a>
-              <a href="tel:+1234567890" className="contact-btn">
+              <a href="tel:+13122666340" className="contact-btn">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
                 </svg>
-                (123) 456-7890
+                (312) 266-6340
               </a>
+              <p className="muted" style={{marginTop: '8px'}}>{t('hours')}: {t('hoursValue')}</p>
             </div>
           </div>
           
           <div className="footer-section footer-section-social">
             <h3>{t('footerFollowUs')}</h3>
             <div className="social-buttons">
-              <a href="https://linkedin.com/company/bossfiredme" className="social-btn" target="_blank" rel="noopener noreferrer">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                </svg>
-                {t('linkedin')}
-              </a>
-              <a href="https://instagram.com/bossfiredme" className="social-btn" target="_blank" rel="noopener noreferrer">
+              <a href="https://instagram.com/dublinschicago" className="social-btn" target="_blank" rel="noopener noreferrer">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                   <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
                   <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
@@ -856,17 +807,11 @@ export function Footer() {
                 </svg>
                 {t('instagram')}
               </a>
-              <a href="https://facebook.com/bossfiredme" className="social-btn" target="_blank" rel="noopener noreferrer">
+              <a href="https://facebook.com/dublinschicago" className="social-btn" target="_blank" rel="noopener noreferrer">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
                 </svg>
                 {t('facebook')}
-              </a>
-              <a href="https://tiktok.com/@bossfiredme" className="social-btn" target="_blank" rel="noopener noreferrer">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
-                </svg>
-                {t('tiktok')}
               </a>
               </div>
             </div>
@@ -876,19 +821,11 @@ export function Footer() {
         <div className="footer-navigation">
           <Link to="/">{t('home')}</Link>
           <span className="footer-nav-separator">|</span>
-          <Link to="/#how-it-works">{t('howItWorks')}</Link>
+          <Link to="/#menu">{t('menu')}</Link>
           <span className="footer-nav-separator">|</span>
-          <Link to="/#faq">{t('faqs')}</Link>
+          <Link to="/#about">{t('about')}</Link>
           <span className="footer-nav-separator">|</span>
-          <Link to="/privacy">{t('privacyPolicy')}</Link>
-          <span className="footer-nav-separator">|</span>
-          <Link to="/terms">{t('termsOfUse')}</Link>
-          <span className="footer-nav-separator">|</span>
-          <Link to="/data-opt-out">Data Opt Out</Link>
-        </div>
-        
-        <div className="footer-disclaimer">
-          <p>{t('footerDisclaimer')}</p>
+          <Link to="/contact">{t('contact')}</Link>
         </div>
         
         <div className="footer-copyright">
