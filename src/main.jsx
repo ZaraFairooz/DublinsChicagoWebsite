@@ -10,6 +10,7 @@ import ThankYou from './pages/ThankYou.jsx'
 import PrivacyPolicy from './pages/PrivacyPolicy.jsx'
 import TermsOfUse from './pages/TermsOfUse.jsx'
 import DataOptOut from './pages/DataOptOut.jsx'
+import Menu from './pages/Menu.jsx'
 import { LanguageProvider, useLanguage } from './LanguageContext.jsx'
 import { useContext } from 'react'
 import { LanguageContext } from './LanguageContext.jsx'
@@ -82,6 +83,14 @@ const router = createBrowserRouter([
     element: (
       <Layout>
         <App />
+      </Layout>
+    ),
+  },
+  {
+    path: '/menu',
+    element: (
+      <Layout>
+        <Menu />
       </Layout>
     ),
   },

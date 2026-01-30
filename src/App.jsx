@@ -69,7 +69,7 @@ export function Header() {
         
         {/* Desktop Navigation */}
         <nav className="nav desktop-nav">
-          <Link to="/#menu">{t('menu')}</Link>
+          <Link to="/menu">{t('menu')}</Link>
           <Link to="/#about">{t('about')}</Link>
           <Link to="/#hours">{t('hours')}</Link>
           <Link to="/contact">{t('contact')}</Link>
@@ -110,7 +110,7 @@ export function Header() {
 
         {/* Mobile Navigation */}
         <nav className={`nav mobile-nav ${isMobileMenuOpen ? 'open' : ''}`}>
-          <Link to="/#menu" onClick={closeMobileMenu}>{t('menu')}</Link>
+          <Link to="/menu" onClick={closeMobileMenu}>{t('menu')}</Link>
           <Link to="/#about" onClick={closeMobileMenu}>{t('about')}</Link>
           <Link to="/#hours" onClick={closeMobileMenu}>{t('hours')}</Link>
           <Link to="/contact" onClick={closeMobileMenu}>{t('contact')}</Link>
@@ -176,7 +176,7 @@ function Hero() {
         <p className="hero-subtitle">{t('heroSubtitle')}</p>
         <p className="hero-text">{t('heroText')}</p>
         <div className="hero-button-container">
-          <a className="btn btn-accent" href="#menu">{t('viewMenu')}</a>
+          <a className="btn btn-accent" href="/menu">{t('viewMenu')}</a>
         </div>
       </div>
     </section>
@@ -215,7 +215,7 @@ function MenuPreview() {
           ))}
         </ul>
         <div className="menu-preview-cta">
-          <a href="#menu" className="btn btn-primary menu-preview-btn">{t('viewOurMenu')}</a>
+          <a href="/menu" className="btn btn-primary menu-preview-btn">{t('viewOurMenu')}</a>
         </div>
         </div>
       </div>
@@ -799,7 +799,7 @@ export function Footer() {
         <div className="footer-navigation">
           <Link to="/">{t('home')}</Link>
           <span className="footer-nav-separator">|</span>
-          <Link to="/#menu">{t('menu')}</Link>
+          <Link to="/menu">{t('menu')}</Link>
           <span className="footer-nav-separator">|</span>
           <Link to="/#about">{t('about')}</Link>
           <span className="footer-nav-separator">|</span>

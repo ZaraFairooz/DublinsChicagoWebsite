@@ -29,6 +29,7 @@ Enable for Production, Preview, and Development
 12- under dublin add irish pub and restaurant 
 13- change footer
 14- add cocktails to go section or page
+15- change broswer tab icon to a beer icon 
 
 
 shamrock greenrgb(0, 127, 76)
