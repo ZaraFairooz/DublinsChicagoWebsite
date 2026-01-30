@@ -13,7 +13,7 @@ export const translations = {
     heroHeader: "OPEN EVERYDAY FROM 10am - 4am",
     heroTitle: "Dublin's Bar & Grill",
     heroSubtitle: "Now Serving Breakfast ALL DAY!",
-    heroText: "Local bar serving morning through late-night 365 days a year.",
+    heroText: "A touch of Ireland in Chicago.",
     viewMenu: "View Menu",
     heroFooter: "1050 North State Street, Chicago • (312) 266-6340",
     
@@ -57,6 +57,8 @@ export const translations = {
     featuredItem5Name: "Dublin Burger",
     featuredItem5Desc: "Angus beef, Irish cheddar, pickled onion, house sauce on brioche.",
     featuredItem5Price: "$15",
+    photoGalleryTitle: "Photo Gallery",
+    viewMorePhotos: "VIEW MORE PHOTOS",
     
     // FAQ
     frequentlyAskedQuestions: "Frequently Asked Questions",
@@ -212,7 +214,7 @@ export const translations = {
     heroHeader: "Open Everyday from 10am - 4am",
     heroTitle: "Ayudamos a empleados despedidos injustamente a obtener justicia.",
     heroSubtitle: "Sin honorarios, a menos que ganes.",
-    heroText: "Te conectamos con abogados laborales experimentados - consulta 100% gratuita.",
+    heroText: "Un toque de Irlanda en Chicago.",
     startYourCase: "Verifica si tienes un caso",
     heroFooter: "Rápido • Confidencial • Sin obligación",
     viewOurMenu: "VER NUESTRO MENÚ",
@@ -232,6 +234,8 @@ export const translations = {
     featuredItem5Name: "Hamburguesa Dublin",
     featuredItem5Desc: "Angus beef, queso irlandés, cebolla encurtida, salsa de la casa en brioche.",
     featuredItem5Price: "$15",
+    photoGalleryTitle: "Galería de fotos",
+    viewMorePhotos: "VER MÁS FOTOS",
     
     // Steps
     threeEasySteps: "Tu camino a la justicia en 3 pasos",

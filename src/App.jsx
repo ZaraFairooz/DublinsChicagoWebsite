@@ -223,6 +223,35 @@ function MenuPreview() {
   )
 }
 
+const GALLERY_IMAGES = [
+  '/Pics/dublinsfrontstore.png',
+  '/Pics/dublinsfoodAI1.png',
+  '/Pics/dublinsAIImg.png',
+  '/Pics/dublinsAIImg2.png',
+  '/Pics/dublinsAIImg3.png',
+]
+
+function PhotoGallery() {
+  const { t } = useLanguage()
+  return (
+    <section id="photo-gallery" className="section photo-gallery">
+      <div className="container">
+        <h2 className="photo-gallery-title">{t('photoGalleryTitle')}</h2>
+        <div className="photo-gallery-grid">
+          {GALLERY_IMAGES.map((src, i) => (
+            <div key={i} className="photo-gallery-item">
+              <img src={src} alt="" className="photo-gallery-image" />
+            </div>
+          ))}
+        </div>
+        <div className="photo-gallery-cta">
+          <a href="#photo-gallery" className="btn btn-primary photo-gallery-btn">{t('viewMorePhotos')}</a>
+        </div>
+      </div>
+    </section>
+  )
+}
+
 function Steps() {
   const stepRefs = useRef([]);
   const titleRef = useRef(null);
@@ -524,103 +553,6 @@ function Services() {
 }
 
 
-function FAQ() {
-  const titleRef = useRef(null);
-  const { t } = useLanguage();
-  const [showAll, setShowAll] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (titleRef.current) {
-        const rect = titleRef.current.getBoundingClientRect();
-        const viewportHeight = window.innerHeight;
-        
-        // Calculate visibility based on scroll position
-        const elementTop = rect.top;
-        const elementBottom = rect.bottom;
-        const elementHeight = rect.height;
-        
-        // Calculate how much of the element is visible
-        let visibilityRatio = 0;
-        if (elementTop < viewportHeight && elementBottom > 0) {
-          const visibleTop = Math.max(0, elementTop);
-          const visibleBottom = Math.min(viewportHeight, elementBottom);
-          const visibleHeight = visibleBottom - visibleTop;
-          visibilityRatio = Math.max(0, Math.min(1, visibleHeight / elementHeight));
-        }
-        
-        // Apply opacity and scale based on visibility
-        const opacity = visibilityRatio > 0.1 ? visibilityRatio : 0;
-        const scale = 0.8 + (visibilityRatio * 0.2); // Scale from 0.8 to 1.0
-        
-        titleRef.current.style.opacity = opacity;
-        titleRef.current.style.transform = `scale(${scale})`;
-      }
-    };
-
-    // Initial check
-    handleScroll();
-    
-    // Add scroll listener
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
-  const faqs = [
-    { q: 'faq1Question', a: 'faq1Answer' },
-    { q: 'faq2Question', a: 'faq2Answer' },
-    { q: 'faq3Question', a: 'faq3Answer' },
-    { q: 'faq4Question', a: 'faq4Answer' },
-    { q: 'faq5Question', a: 'faq5Answer' },
-    { q: 'faq6Question', a: 'faq6Answer' },
-    { q: 'faq7Question', a: 'faq7Answer' },
-    { q: 'faq8Question', a: 'faq8Answer' },
-    { q: 'faq9Question', a: 'faq9Answer' },
-    { q: 'faq10Question', a: 'faq10Answer' },
-    { q: 'faq11Question', a: 'faq11Answer' },
-    { q: 'faq12Question', a: 'faq12Answer' },
-    { q: 'faq13Question', a: 'faq13Answer' },
-    { q: 'faq14Question', a: 'faq14Answer' },
-    { q: 'faq15Question', a: 'faq15Answer' },
-  ];
-
-  const initialFaqs = faqs.slice(0, 5);
-  const remainingFaqs = faqs.slice(5);
-  const displayedFaqs = showAll ? faqs : initialFaqs;
-
-  return (
-    <section id="hours" className="section faq">
-      <div className="container">
-        <h2 ref={titleRef}>{t('frequentlyAskedQuestions')}</h2>
-
-        <div className="faq-content">
-          {displayedFaqs.map((faq, index) => (
-            <details key={index} className={index % 2 === 0 ? 'faq-even' : 'faq-odd'}>
-              <summary>
-                <span className="faq-question">{t(faq.q)}</span>
-                <span className="faq-icon">+</span>
-              </summary>
-              <p dangerouslySetInnerHTML={{ __html: t(faq.a) }}></p>
-            </details>
-          ))}
-          
-          {remainingFaqs.length > 0 && (
-            <button 
-              className="faq-see-more-btn"
-              onClick={() => setShowAll(!showAll)}
-            >
-              {showAll ? t('seeLessFaqs') : t('seeMoreFaqs')}
-            </button>
-          )}
-        </div>
-      </div>
-    </section>
-  )
-}
-
 function ContactSection() {
   const { t } = useLanguage();
   const [formData, setFormData] = useState({
@@ -901,7 +833,7 @@ export default function App() {
     <>
       <Hero />
       <MenuPreview />
-      <FAQ />
+      <PhotoGallery />
       <ContactSection />
     </>
   )

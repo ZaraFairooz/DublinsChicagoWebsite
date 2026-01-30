@@ -17,8 +17,7 @@ Enable for Production, Preview, and Development
 
 
 1- Change spanish translation to correct match follow english's version
-2- make header nav at the top shorter length 
-3- change colors
+ 
 4- add menu page and section like https://aulddubliner.com/
 5- change hours to 10am to 4am
 6- add uber link and logo 
@@ -28,6 +27,8 @@ Enable for Production, Preview, and Development
 10- make translation langos like https://www.peninsula.com/en/beverly-hills/hotel-fine-dining/club-bar
 11- add pop up note above header on addy number and hours
 12- under dublin add irish pub and restaurant 
+13- change footer
+14- add cocktails to go section or page
 
 
 shamrock greenrgb(0, 127, 76)
