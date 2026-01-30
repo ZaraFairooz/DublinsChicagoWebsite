@@ -1,6 +1,4 @@
 TO DO
-- do 2 step verif to matt's email , get pho no  
-- do later for free: add social handles and phone number
 
 What You Need to Do Next
 1. Enable 2-Step Verification on your Gmail account (bfairooz1@gmail.com)
@@ -31,3 +29,6 @@ Enable for Production, Preview, and Development
 11- add pop up note above header on addy number and hours
 12- under dublin add irish pub and restaurant 
 
+
+shamrock greenrgb(0, 127, 76)
+#C8B282 

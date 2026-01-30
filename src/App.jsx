@@ -48,7 +48,14 @@ export function Header() {
   };
 
   return (
-    <header className={`site-header ${isScrollingDown ? 'header-hidden' : ''}`}>
+    <div className={`header-wrapper ${isScrollingDown ? 'header-hidden' : ''}`}>
+      <div className="top-bar">
+        <span className="top-bar-text">{t('heroHeader')}</span>
+        <span className="top-bar-address">
+          1050 North State Street, Chicago <a href="tel:+1312266340" className="top-bar-phone">(312) 266-6340</a>
+        </span>
+      </div>
+      <header className="site-header">
       <div className="container header-inner">
         <div className="brand-container">
           <Link to="/" className="brand">
@@ -127,6 +134,7 @@ export function Header() {
         </nav>
       </div>
     </header>
+    </div>
   )
 }
 
@@ -163,14 +171,52 @@ function Hero() {
       <div className="hero-overlay"></div>
       <div className="container hero-inner">
         <img src="/Pics/dublinslogo.webp" alt="Dublin's Bar & Grill Logo" className="hero-logo" />
-        <p className="hero-header">{t('heroHeader')}</p>
+        <div className="hero-logo-divider" aria-hidden="true" />
         <h1 className="hero-title">{t('heroTitle')}</h1>
         <p className="hero-subtitle">{t('heroSubtitle')}</p>
         <p className="hero-text">{t('heroText')}</p>
         <div className="hero-button-container">
           <a className="btn btn-accent" href="#menu">{t('viewMenu')}</a>
-          <a className="btn btn-primary" href="tel:+13122666340" style={{marginLeft: '12px'}}>{t('callNow')}</a>
-          <p className="hero-footer">{t('heroFooter')}</p>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+const FEATURED_MENU_ITEMS = [
+  { img: '/Pics/dublinsfoodAI1.png', nameKey: 'featuredItem1Name', descKey: 'featuredItem1Desc', priceKey: 'featuredItem1Price' },
+  { img: '/Pics/dublinsAIImg.png', nameKey: 'featuredItem2Name', descKey: 'featuredItem2Desc', priceKey: 'featuredItem2Price' },
+  { img: '/Pics/dublinsAIImg2.png', nameKey: 'featuredItem3Name', descKey: 'featuredItem3Desc', priceKey: 'featuredItem3Price' },
+  { img: '/Pics/dublinsAIImg3.png', nameKey: 'featuredItem4Name', descKey: 'featuredItem4Desc', priceKey: 'featuredItem4Price' },
+  { img: '/Pics/dublinfrontstore.jpg', nameKey: 'featuredItem5Name', descKey: 'featuredItem5Desc', priceKey: 'featuredItem5Price' },
+]
+
+function MenuPreview() {
+  const { t } = useLanguage()
+  return (
+    <section id="menu-preview" className="section menu-preview">
+      <div className="container">
+        <div className="menu-preview-inner">
+        <h2 className="menu-preview-title">{t('featuredMenuTitle')}</h2>
+        <ul className="menu-preview-list">
+          {FEATURED_MENU_ITEMS.map((item, i) => (
+            <li key={i} className="menu-preview-item">
+              <div className="menu-preview-item-image-wrap">
+                <img src={item.img} alt="" className="menu-preview-item-image" />
+              </div>
+              <div className="menu-preview-item-content">
+                <div className="menu-preview-item-head">
+                  <h3 className="menu-preview-item-name">{t(item.nameKey)}</h3>
+                  <span className="menu-preview-item-price">{t(item.priceKey)}</span>
+                </div>
+                <p className="menu-preview-item-desc">{t(item.descKey)}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+        <div className="menu-preview-cta">
+          <a href="#menu" className="btn btn-primary menu-preview-btn">{t('viewOurMenu')}</a>
+        </div>
         </div>
       </div>
     </section>
@@ -854,8 +900,7 @@ export default function App() {
   return (
     <>
       <Hero />
-      <Steps />
-      <Services />
+      <MenuPreview />
       <FAQ />
       <ContactSection />
     </>
